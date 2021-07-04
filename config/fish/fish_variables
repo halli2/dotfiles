@@ -6,6 +6,7 @@ SETUVAR _fish_abbr_L:\x7c\x20less
 SETUVAR _fish_abbr_dotfiles:/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d/home/halli/\x2edotfiles/\x20\x2d\x2dwork\x2dtree\x3d/home/halli
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_ga:git\x20add
+SETUVAR _fish_abbr_gcms:git\x20commit\x20\x2dm
 SETUVAR _fish_abbr_gis:git\x20status
 SETUVAR _fish_abbr_grimsave:grimshot\x20save\x20area\x20\x7e/Screenshots/\x28date\x20\x2b\x25Y\x2d\x25m\x2d\x25d_\x25H\x2d\x25m\x2d\x25s\x29\x2epng
 SETUVAR _fish_abbr_gsa:grimshot\x20save\x20area
