@@ -1,0 +1,8 @@
+Host uis
+	HostName ssh1.ux.uis.no
+	User hnkvamme
+Host flkzpi
+	Hostname 192.168.50.144
+	User flkzpi
+
+AddKeysToAgent yes
