@@ -1,0 +1,61 @@
+{
+	"live_retry_timeout": 60,
+	"preferred_language": "en",
+	"check_updates": true,
+	"save_logs": true,
+	"log_location": "",
+	"custom_playback_options": null,
+	"multi_commands": [
+		{
+		"title": "Race Control",
+			"targets": [
+		{
+			"match_title": "World Feed",
+			"command": ["mpv", "--alang=en", "--volume=75", "--quiet", "--no-border", "--title=$title", "--autofit-larger=67%", "-geometry=0:0", "$url",  "--cache-pause-initial=yes", "--cache-pause-wait=35"]
+		},
+		{
+			"match_title": "Leclerc",
+			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=100%:0", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
+		},
+		{
+			"match_title": "Data",
+			 "command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=0:100%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
+		},
+		{
+			"match_title": "Verstappen",
+			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=100%:100%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
+		},
+		{
+			"match_title": "Gasly",
+			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=100%:50%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
+		},
+		{
+			"match_title": "Tracker",
+			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=50%:100%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
+		}
+		]
+		}
+		],
+	"horizontal_layout": false,
+	"theme": {
+		"background_color": "",
+		"border_color": "",
+		"category_node_color": "",
+		"folder_node_color": "",
+		"item_node_color": "",
+		"action_node_color": "",
+		"loading_color": "",
+		"live_color": "",
+		"update_color": "",
+		"no_content_color": "",
+		"info_color": "",
+		"error_color": "",
+		"terminal_accent_color": "",
+		"terminal_text_color": "",
+		"multi_command_color": ""
+	},
+	"tree_ratio": 1,
+	"output_ratio": 1,
+	"terminal_wrap": true,
+	"disable_team_colors": false
+}

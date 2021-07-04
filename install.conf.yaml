@@ -1,4 +1,4 @@
-- clean: ['~']
+- clean: ['~', '~/.config']
 
 - link:
     ~/.bash_profile: bash_profile
@@ -10,8 +10,39 @@
         create: true
     ~/.zshrc: zshrc
     ~/.xinitrc: xinitrc
+    # config folder
+    ~/.config/BetterDiscord:
+        path: config/BetterDiscord/
+        create: true
+    ~/.config/f1viewer:
+        path: config/f1viewer
+        create: true
+    ~/.config/fish:
+        path: config/fish
+        create: true
     ~/.config/i3:
         path: config/i3/
         create: true
-
-
+    ~/.config/kitty:
+        path: config/kitty/
+        create: true
+    ~/.config/nvim:
+        path: config/nvim
+        create: true
+    ~/.config/PulseEffects:
+        path: config/PulseEffects
+        create: true
+    ~/.config/ranger:
+        path: config/ranger
+        create: true
+    ~/.config/sway:
+        path: config/sway
+        create: true
+    ~/.config/waybar:
+        path: config/waybar
+        create: true
+    ~/.config/zathura:
+        path: config/zathura
+        create: true
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]

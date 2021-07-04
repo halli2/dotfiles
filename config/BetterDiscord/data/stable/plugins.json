@@ -1,0 +1,12 @@
+{
+    "FreeEmojis": true,
+    "Link-Profile-Picture": true,
+    "ShowHiddenChannels": false,
+    "BDFDB": true,
+    "PluginRepo": true,
+    "silentTyping": true,
+    "ThemeRepo": false,
+    "ChannelTabs": true,
+    "ZeresPluginLibrary": true,
+    "discordExperiments": false
+}
