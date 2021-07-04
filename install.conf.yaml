@@ -44,5 +44,6 @@
     ~/.config/zathura:
         path: config/zathura
         create: true
+
         #- shell:
     #    - [git submodule update --init --recursive, Installing submodules]
