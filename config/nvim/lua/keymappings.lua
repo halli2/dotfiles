@@ -1,17 +1,15 @@
-local utils = require('utils')
+local utils = require('utils')          -- Import function to map keys
 
-local opt = {}
+utils.map('n', '<C-l>', '<cmd>noh<CR>') -- Clear highlights
+utils.map('i', 'jk', '<Esc>')           -- jk to escape
+utils.map('i', 'kj', '<Esc>')           -- kj to escape
 
--- Telescope
-utils.map('n', '<leader>gt', [[<cmd> Telescope git_status <cr>]], opt) -- (With help of fugitive)
-utils.map('n', '<leader>cm', [[<cmd> Telescope git_commits <cr>]], opt)
-utils.map('n', '<leader>ff', [[<cmd> Telescope find_files <cr>]], opt)
--- utils.map('n', '<leader>fp', [[<cmd>lua require('telescope').extensions.media_files.media_files()<cr>]], opt) -- Uberzug doesn't work on wayland?
-utils.map('n', '<leader>fb', [[<cmd> Telescope buffers <cr>]], opt)
-utils.map('n', '<leader>fh', [[<cmd> Telescope help_tags <cr>]], opt)
-utils.map('n', '<leader>fo', [[<cmd> Telescope oldfiles <cr>]], opt)
-
--- LSP Mappings see lsp_lua/init.lua 
--- Completion see config/completion.lua
-
+-- Telescope keybinds
+utils.map('n', '<leader>ff', '<cmd> Telescope find_files<cr>')
+utils.map('n', '<leader>fg', '<cmd> Telescope live_grep<cr>')
+utils.map('n', '<leader>fb', '<cmd> Telescope buffers<cr>')
+utils.map('n', '<leader>fh', '<cmd> Telescope help_tags<cr>')
+utils.map('n', '<leader>fo', '<cmd> Telescope oldfiles<cr>')
+utils.map('n', '<leader>gt', '<cmd> Telescope git_status<cr>')
+utils.map('n', '<leader>cm', '<cmd> Telescope git_commits<cr>')
 

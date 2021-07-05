@@ -1,4 +1,4 @@
-local utils = require('utils') -- Import funtion to set global buffer or window scope
+local utils = require('utils')
 
 local cmd = vim.cmd
 local indent = 4
@@ -20,8 +20,6 @@ utils.opt('o', 'wildmode', 'list:longest')
 utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'clipboard','unnamed,unnamedplus')
--- Treesitter
-
 
 -- Highlight on yank
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'

@@ -1,28 +1,25 @@
 -- Map leader to space
-vim.g.mapleader = ' '
+vim.g.mapleader = ','
 
 local fn = vim.fn
 local execute = vim.api.nvim_command
 
--- Sensible Defaults
-require('settings') 
+-- Different settings
+require ('settings')
+require ('keymappings')
 
--- Auto install packer.nvim if not exists
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+-- Auto install packer
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  execute 'packadd packer.nvim'
 end
-vim.cmd [[packadd packer.nvim]]
-vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
--- Install plugins
-require('plugins')
--- Key mappings
-require('keymappings')
--- Setup Lua language server using submodule
-require('lsp_lua')
--- Telescope setup
-----require('telescope')
--- Completion setup
-require('config.completion')
 
+-- Load plugins
+require ('plugins')
 
+-- Lsp configuration
+require ('lsp_config')
+-- Treesitter
+require ('treesitter')
