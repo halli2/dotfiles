@@ -255,14 +255,12 @@ focus_follows_mouse no
 bindsym XF86Calculator exec playerctl play-pause
 
 # Startup programs
-workspace 1
-exec firefox
-exec discord --silent
+#exec firefox
+exec discord --start-minimized
 workspace 2
 exec spotify --silent
 workspace 1
-workspace 3
-exec steam --silent
+exec steam --start-minimized
 
 # Screenshot
 bindsym $mod+Shift+s exec grimshot copy area

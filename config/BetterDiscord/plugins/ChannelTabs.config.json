@@ -7,32 +7,31 @@
     "settings": {
         "tabs": [
             {
-                "name": "#📉degen-futures",
-                "url": "/channels/829781697397522502/829805464559812669",
+                "name": "#MAIS GUTTA :)",
+                "url": "/channels/628995161405521931/628995162030342180",
                 "selected": false,
-                "iconUrl": "https://cdn.discordapp.com/icons/829781697397522502/30ede573f6780a8a083481af69c968e6.webp?size=128",
-                "channelId": "829805464559812669"
+                "iconUrl": "https://cdn.discordapp.com/icons/628995161405521931/d9cfbb496ede636643f0e57f7b1ca1c3.webp?size=128",
+                "channelId": "628995162030342180"
             },
             {
-                "name": "#crypto-chat",
-                "url": "/channels/436247542737534977/469778801316986880",
-                "selected": false,
-                "iconUrl": "https://cdn.discordapp.com/icons/436247542737534977/06253d9b67ab6830d65dfc063a24ccd3.webp?size=128",
-                "channelId": "469778801316986880"
-            },
-            {
-                "name": "#💿crypto-currency",
-                "url": "/channels/785723181742817301/798014136235589683",
+                "name": "#crypto-charts-only",
+                "url": "/channels/436247542737534977/436250699660001320",
                 "selected": true,
-                "iconUrl": "https://cdn.discordapp.com/icons/785723181742817301/a_e67ef3a9371fe8813ae668573c34f953.webp?size=128",
-                "channelId": "798014136235589683"
+                "iconUrl": "https://cdn.discordapp.com/icons/436247542737534977/06253d9b67ab6830d65dfc063a24ccd3.webp?size=128",
+                "channelId": "436250699660001320"
             },
             {
-                "name": "#pepevault",
-                "url": "/channels/725851172266573915/817134615541055520",
+                "name": "#🚁spac-chat",
+                "url": "/channels/785723181742817301/792896237769719831",
                 "selected": false,
-                "iconUrl": "https://cdn.discordapp.com/icons/725851172266573915/74ccf4992c09c3ae400688f3305314f5.webp?size=128",
-                "channelId": "817134615541055520"
+                "iconUrl": "https://cdn.discordapp.com/icons/785723181742817301/a_e67ef3a9371fe8813ae668573c34f953.webp?size=128",
+                "channelId": "792896237769719831"
+            },
+            {
+                "name": "Friends",
+                "url": "/channels/@me",
+                "selected": false,
+                "iconUrl": ""
             },
             {
                 "name": "#btc",
