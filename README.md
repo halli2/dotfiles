@@ -4,4 +4,5 @@ Made with [init-dotfiles](https://github.com/Vaelatern/init-dotfiles) which uses
 
 ### Installation ###
 
+Run ./install
 
