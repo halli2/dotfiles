@@ -53,6 +53,9 @@
     ~/.config/rofi:
       path: config/rofi
       create: true
+    ~/scripts:
+      path: scripts
+      create: true
 
 
         #- shell:

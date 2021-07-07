@@ -7,18 +7,18 @@
     "settings": {
         "tabs": [
             {
-                "name": "#crypto-chat",
-                "url": "/channels/436247542737534977/469778801316986880",
-                "selected": true,
-                "iconUrl": "https://cdn.discordapp.com/icons/436247542737534977/06253d9b67ab6830d65dfc063a24ccd3.webp?size=128",
-                "channelId": "469778801316986880"
+                "name": "#🗠technical-analysis",
+                "url": "/channels/829781697397522502/829805441449328662",
+                "selected": false,
+                "iconUrl": "https://cdn.discordapp.com/icons/829781697397522502/30ede573f6780a8a083481af69c968e6.webp?size=128",
+                "channelId": "829805441449328662"
             },
             {
-                "name": "#🚁spac-chat",
-                "url": "/channels/785723181742817301/792896237769719831",
-                "selected": false,
+                "name": "#💿crypto-currency",
+                "url": "/channels/785723181742817301/798014136235589683",
+                "selected": true,
                 "iconUrl": "https://cdn.discordapp.com/icons/785723181742817301/a_e67ef3a9371fe8813ae668573c34f953.webp?size=128",
-                "channelId": "792896237769719831"
+                "channelId": "798014136235589683"
             },
             {
                 "name": "#📈alpha",
