@@ -100,8 +100,6 @@ rivalcfg-git
 rofi-dmenu
 rofi-lbonn-wayland-git
 ruby
-runelite
-runescape-launcher
 samba
 scrot
 setwall-bin

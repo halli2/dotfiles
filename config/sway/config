@@ -260,7 +260,7 @@ exec discord --start-minimized
 workspace 2
 exec spotify --silent
 workspace 1
-exec steam --start-minimized
+exec steam --silent
 
 # Screenshot
 bindsym $mod+Shift+s exec grimshot copy area
