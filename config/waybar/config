@@ -70,6 +70,7 @@
 	},
 	"clock#2": {
 		"format": "{:%H:%M}",
+        "timezone": "Europe/Oslo",
 		"tooltip": false
 	},
 	"clock#3": {
