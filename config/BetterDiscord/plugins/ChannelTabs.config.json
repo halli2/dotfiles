@@ -7,13 +7,6 @@
     "settings": {
         "tabs": [
             {
-                "name": "#MAIS GUTTA :)",
-                "url": "/channels/628995161405521931/628995162030342180",
-                "selected": false,
-                "iconUrl": "https://cdn.discordapp.com/icons/628995161405521931/d9cfbb496ede636643f0e57f7b1ca1c3.webp?size=128",
-                "channelId": "628995162030342180"
-            },
-            {
                 "name": "#crypto-chat",
                 "url": "/channels/436247542737534977/469778801316986880",
                 "selected": true,
@@ -28,17 +21,11 @@
                 "channelId": "792896237769719831"
             },
             {
-                "name": "Friends",
-                "url": "/channels/@me",
+                "name": "#📈alpha",
+                "url": "/channels/829781697397522502/830858388391985182",
                 "selected": false,
-                "iconUrl": ""
-            },
-            {
-                "name": "#btc",
-                "url": "/channels/849013827772743681/853952327249035265",
-                "selected": false,
-                "iconUrl": "https://cdn.discordapp.com/icons/849013827772743681/7c9dfd417037c258412b4c8a67f063b2.webp?size=128",
-                "channelId": "853952327249035265"
+                "iconUrl": "https://cdn.discordapp.com/icons/829781697397522502/30ede573f6780a8a083481af69c968e6.webp?size=128",
+                "channelId": "830858388391985182"
             }
         ],
         "favs": [

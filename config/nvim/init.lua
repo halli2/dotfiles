@@ -20,6 +20,7 @@ end
 require ('plugins')
 
 -- Lsp configuration
-require ('lsp_config')
+require ('lsp')
 -- Treesitter
 require ('treesitter')
+

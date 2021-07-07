@@ -19,6 +19,7 @@ return require('packer').startup(function()
         keys = {'gcc', 'gc'}
     }
     use {'lukas-reineke/indent-blankline.nvim'}
+    use {'plasticboy/vim-markdown'}
     -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',

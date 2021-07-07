@@ -76,6 +76,9 @@ local function make_config()
   }
 end
 
+-- custom installers
+-- require('unifiedls')
+
 -- lsp-install
 local function setup_servers()
   require'lspinstall'.setup()
@@ -98,6 +101,9 @@ local function setup_servers()
     end
     if server == "clangd" then
       config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
+    end
+    if server == "html" then
+        config.filetypes = {'html'};
     end
 
     require'lspconfig'[server].setup(config)
@@ -170,4 +176,59 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+-- language specific configs
+
+-- diagnostics
+vim.fn.sign_define(
+    "LspDiagnosticsSignError",
+    {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"}
+)
+vim.fn.sign_define(
+    "LspDiagnosticsSignWarning",
+    {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"}
+)
+vim.fn.sign_define(
+    "LspDiagnosticsSignHint",
+    {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"}
+)
+vim.fn.sign_define(
+    "LspDiagnosticsSignInformation",
+    {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"}
+)
+
+-- completion symbols
+vim.lsp.protocol.CompletionItemKind = {
+    "   (Text) ",
+    "   (Method)",
+    "   (Function)",
+    "   (Constructor)",
+    " ﴲ  (Field)",
+    "[] (Variable)",
+    "   (Class)",
+    " ﰮ  (Interface)",
+    "   (Module)",
+    " 襁 (Property)",
+    "   (Unit)",
+    "   (Value)",
+    " 練 (Enum)",
+    "   (Keyword)",
+    "   (Snippet)",
+    "   (Color)",
+    "   (File)",
+    "   (Reference)",
+    "   (Folder)",
+    "   (EnumMember)",
+    " ﲀ  (Constant)",
+    " ﳤ  (Struct)",
+    "   (Event)",
+    "   (Operator)",
+    "   (TypeParameter)"
+}
+
+-- custom lsp servers
+-- vim.g.LanguageClient_serverCommands = {
+    -- text = {'unified-language-server', '--parser=retext-english', '--stdio'},
+    -- markdown = {'unified-language-server', '--parser=remark-parse', '--stdio'},
+-- }
 

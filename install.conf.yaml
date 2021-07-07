@@ -44,6 +44,16 @@
     ~/.config/zathura:
         path: config/zathura
         create: true
+    ~/.config/environment.d:
+        path: config/environment.d
+        create: true
+    ~/.config/rivalcfg:
+      path: config/rivalcfg
+      create: true
+    ~/.config/rofi:
+      path: config/rofi
+      create: true
+
 
         #- shell:
     #    - [git submodule update --init --recursive, Installing submodules]
