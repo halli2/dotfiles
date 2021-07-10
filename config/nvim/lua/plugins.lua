@@ -20,6 +20,7 @@ return require('packer').startup(function()
     }
     use {'lukas-reineke/indent-blankline.nvim'}
     use {'plasticboy/vim-markdown'}
+    use {'godlygeek/tabular'}
     -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',

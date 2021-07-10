@@ -1,6 +1,6 @@
 {
-    "version": "1.1.1",
-    "emoteVersion": "v1.1.1",
+    "version": "1.2.0",
+    "emoteVersion": "v1.2.0",
     "drawerStates": {
         "settings": {
             "customcss": true,

@@ -20,6 +20,8 @@ utils.opt('o', 'wildmode', 'list:longest')
 utils.opt('w', 'number', true)
 utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'clipboard','unnamed,unnamedplus')
+-- Conceal, yay/nay?
+-- utils.opt('o', 'conceallevel', 1)
 -- Treesitter
 
 

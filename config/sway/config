@@ -26,7 +26,7 @@ set $menu rofi -combi-modi window#drun#ssh -show combi -modi combi -show-icons
 exec wl-paste -t text --watch clipman store --no-persist
 exec wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 bindsym $mod+Shift+v exec clipman pick -t rofi
-
+bindsym $mod+Shift+d exec clipman clear -t rofi
 
 ### Output configuration
 #
@@ -250,6 +250,7 @@ for_window [class="Steam"] floating enable
 for_window [app_id="mpv"] floating enable
 for_window [class="jclient-LoginFrame"] floating enable
 focus_follows_mouse no
+for_window [title="^Picture-in-Picture$" app_id="firefox"] floating enable, sticky enable #Sticky keeps it on all workspaces (on current output)
 
 # Play/pause
 bindsym XF86Calculator exec playerctl play-pause
@@ -260,7 +261,7 @@ exec discord --start-minimized
 workspace 2
 exec spotify --silent
 workspace 1
-exec steam --silent
+exec steam -silent
 
 # Screenshot
 bindsym $mod+Shift+s exec grimshot copy area
@@ -271,3 +272,5 @@ bindsym $mod+Shift+p exec passmenu
 bindsym Alt+Tab exec ~/scripts/rofi_window_switcher_hack.sh
 # Polkit (polkit-gnome)
 exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Start pulseeffects in the background for equalizing
+exec pulseeffects --gapplication-service

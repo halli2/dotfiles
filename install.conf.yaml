@@ -9,6 +9,7 @@
         path: ssh/config
         create: true
     ~/.zshrc: zshrc
+    ~/.p10k.zsh: p10k.zsh
     ~/.xinitrc: xinitrc
     # config folder
     ~/.config/BetterDiscord:
@@ -55,6 +56,9 @@
       create: true
     ~/scripts:
       path: scripts
+      create: true
+    ~/.local/share/applications/firefox.desktop:
+      path: desktop/firefox.desktop
       create: true
 
 
