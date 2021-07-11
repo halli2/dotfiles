@@ -7,11 +7,11 @@
     "settings": {
         "tabs": [
             {
-                "name": "#mosikken",
-                "url": "/channels/628995161405521931/693844330112352328",
-                "selected": false,
+                "name": "#general",
+                "url": "/channels/628995161405521931/628995162030342178",
+                "selected": true,
                 "iconUrl": "https://cdn.discordapp.com/icons/628995161405521931/d9cfbb496ede636643f0e57f7b1ca1c3.webp?size=128",
-                "channelId": "693844330112352328"
+                "channelId": "628995162030342178"
             },
             {
                 "name": "#tm-charts-discussion",
@@ -21,11 +21,10 @@
                 "channelId": "436250357362851840"
             },
             {
-                "name": "#🚁spac-chat",
-                "url": "/channels/785723181742817301/792896237769719831",
-                "selected": true,
-                "iconUrl": "https://cdn.discordapp.com/icons/785723181742817301/a_e67ef3a9371fe8813ae668573c34f953.webp?size=128",
-                "channelId": "792896237769719831"
+                "name": "Friends",
+                "url": "/channels/@me",
+                "selected": false,
+                "iconUrl": ""
             }
         ],
         "favs": [

@@ -136,9 +136,15 @@ require'compe'.setup {
   source = {
     path = true;
     nvim_lsp = true;
+    vsnip = true;
+    luasnip = false;
+    ultisnips = false;
   };
 }
 
+
+
+-- [[
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -176,6 +182,13 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+-- Map compe and complete functions SNIPPETS!
+vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', {expr = true})
+vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', { expr = true })
+--]]
+-- Makes ultisnip NOT expand on tab
+--vim.g.UltiSnipsExpandTrigger = '<leader><Tab>'
 
 -- language specific configs
 
@@ -231,4 +244,3 @@ vim.lsp.protocol.CompletionItemKind = {
     -- text = {'unified-language-server', '--parser=retext-english', '--stdio'},
     -- markdown = {'unified-language-server', '--parser=remark-parse', '--stdio'},
 -- }
-

@@ -1,4 +1,4 @@
--- dofile('/home/wil/.config/nvim/lua/profiler.lua')
+-- (Lot's taken from https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/init.lua)
 local g = vim.g
 local cmd = vim.cmd
 local o, wo, bo = vim.o, vim.wo, vim.bo
@@ -7,9 +7,10 @@ local opt = utils.opt
 local autocmd = utils.autocmd
 local map = utils.map
 
--- Leader/local leader
-g.mapleader = [[ ]]
-g.maplocalleader = [[,]]
+-- Leader / local leader
+g.mapleader = ' '
+g.maplocalleader = ','
+
 
 -- Skip some remote provider loading
 g.loaded_python_provider = 0
@@ -33,7 +34,7 @@ local disabled_built_ins = {
 
 for i = 1, 10 do
   g['loaded_' .. disabled_built_ins[i]] = 1
-end
+ end
 
 -- Settings
 local buffer = { o, bo }
@@ -70,33 +71,25 @@ opt('previewheight', 5)
 opt('undofile', true, buffer)
 opt('synmaxcol', 500, buffer)
 opt('display', 'msgsep')
-opt('cursorline', true, window)
+--opt('cursorline', true, window)
 opt('modeline', false, buffer)
 opt('mouse', 'nivh')
 opt('signcolumn', 'yes:1', window)
 
 -- Colorscheme
-opt('termguicolors', true)
--- Tokyo night config
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
-
--- Change the "hint" color to the "orange" color, and make the "error" color bright red
-vim.g.tokyonight_colors = { hint = "orange", error = "#ff0000" }
-cmd [[colorscheme tokyonight]]
+-- opt('termguicolors', true)
 -- opt('background', 'dark')
 -- cmd [[colorscheme gruvbox-material]]
 -- cmd [[colorscheme nazgul]]
 
 -- Autocommands
-autocmd('start_screen', [[VimEnter * ++once lua require('start').start()]], true)
-autocmd(
-  'syntax_aucmds',
-  [[Syntax * syn match extTodo "\<\(NOTE\|HACK\|BAD\|TODO\):\?" containedin=.*Comment.* | hi! link extTodo Todo]],
-  true
-)
-autocmd('misc_aucmds', { [[BufWinEnter * checktime]], [[TextYankPost * silent! lua vim.highlight.on_yank()]] }, true)
+--autocmd('start_screen', [[VimEnter * ++once lua require('start').start()]], true)
+--autocmd(
+--  'syntax_aucmds',
+--  [[Syntax * syn match extTodo "\<\(NOTE\|HACK\|BAD\|TODO\):\?" containedin=.*Comment.* | hi! link extTodo Todo]],
+--  true
+--)
+--autocmd('misc_aucmds', { [[BufWinEnter * checktime]], [[TextYankPost * silent! lua vim.highlight.on_yank()]] }, true)
 
 -- Commands
 cmd [[command! WhatHighlight :call util#syntax_stack()]]
