@@ -1,3 +1,4 @@
+-- https://github.com/wbthomason/dotfiles
 -- dofile('/home/wil/.config/nvim/lua/profiler.lua')
 local g = vim.g
 local cmd = vim.cmd
@@ -77,8 +78,18 @@ opt('signcolumn', 'yes:1', window)
 
 -- Colorscheme
 opt('termguicolors', true)
+
+-- Github-nvim-theme
+-- require('github-theme').setup({
+--   themeStyle = 'dimmed',
+-- })
+
+-- Onedark config
+-- vim.g.onedark_style = 'deep'
+-- cmd [[colorscheme onedark]]
+
 -- Tokyo night config
-vim.g.tokyonight_style = "night"
+vim.g.tokyonight_style = "storm"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 
@@ -140,3 +151,7 @@ map('n', '<c-h>', '<c-w>h')
 map('n', '<c-j>', '<c-w>j')
 map('n', '<c-k>', '<c-w>k')
 map('n', '<c-l>', '<c-w>l')
+
+-- Escape
+map('i', 'jk', '<esc>')
+map('i', 'kj', '<esc>')

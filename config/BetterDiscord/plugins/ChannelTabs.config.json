@@ -7,24 +7,25 @@
     "settings": {
         "tabs": [
             {
-                "name": "#general",
-                "url": "/channels/628995161405521931/628995162030342178",
+                "name": "#🗠technical-analysis",
+                "url": "/channels/829781697397522502/829805441449328662",
                 "selected": true,
-                "iconUrl": "https://cdn.discordapp.com/icons/628995161405521931/d9cfbb496ede636643f0e57f7b1ca1c3.webp?size=128",
-                "channelId": "628995162030342178"
+                "iconUrl": "https://cdn.discordapp.com/icons/829781697397522502/30ede573f6780a8a083481af69c968e6.webp?size=128",
+                "channelId": "829805441449328662"
             },
             {
-                "name": "#tm-charts-discussion",
-                "url": "/channels/436247542737534977/436250357362851840",
+                "name": "#ta-discussion",
+                "url": "/channels/436247542737534977/437245213916921856",
                 "selected": false,
                 "iconUrl": "https://cdn.discordapp.com/icons/436247542737534977/06253d9b67ab6830d65dfc063a24ccd3.webp?size=128",
-                "channelId": "436250357362851840"
+                "channelId": "437245213916921856"
             },
             {
-                "name": "Friends",
-                "url": "/channels/@me",
+                "name": "#supply-demand",
+                "url": "/channels/849013827772743681/853010870157574174",
                 "selected": false,
-                "iconUrl": ""
+                "iconUrl": "https://cdn.discordapp.com/icons/849013827772743681/7c9dfd417037c258412b4c8a67f063b2.webp?size=128",
+                "channelId": "853010870157574174"
             }
         ],
         "favs": [

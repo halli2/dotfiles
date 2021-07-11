@@ -17,7 +17,11 @@ local function init()
   -- Registers
   -- use 'junegunn/vim-peekaboo'
 
-  use { 'camspiers/snap', rocks = 'fzy' }
+  use {
+    'camspiers/snap',
+    rocks = 'fzy',
+    config = [[require('config.snap')]]
+  }
 
   -- Marks
   use { 'kshenoy/vim-signature', config = [[require('config.signature')]], disable = true }
@@ -30,8 +34,8 @@ local function init()
   use { 'chaoren/vim-wordmotion', 'justinmk/vim-sneak' }
 
   -- Quickfix
-  use { 'Olical/vim-enmasse', cmd = 'EnMasse' }
-  use 'kevinhwang91/nvim-bqf'
+  -- use { 'Olical/vim-enmasse', cmd = 'EnMasse' }
+  -- use 'kevinhwang91/nvim-bqf'
 
   -- Indentation tracking
   use 'lukas-reineke/indent-blankline.nvim'
@@ -53,7 +57,7 @@ local function init()
   use 'mhartington/formatter.nvim'
 
   -- Text objects
-  use 'wellle/targets.vim'
+  -- use 'wellle/targets.vim'
 
   -- Search
   use {
@@ -75,19 +79,19 @@ local function init()
   }
 
   -- Project Management/Sessions
-  use {
-    'dhruvasagar/vim-prosession',
-    after = 'vim-obsession',
-    requires = { { 'tpope/vim-obsession', cmd = 'Prosession' } },
-    config = [[require('config.prosession')]],
-  }
+  -- use {
+  --   'dhruvasagar/vim-prosession',
+  --   after = 'vim-obsession',
+  --   requires = { { 'tpope/vim-obsession', cmd = 'Prosession' } },
+  --   config = [[require('config.prosession')]],
+  -- }
 
   -- Undo tree
-  use {
-    'mbbill/undotree',
-    cmd = 'UndotreeToggle',
-    config = [[vim.g.undotree_SetFocusWhenToggle = 1]],
-  }
+  -- use {
+  --   'mbbill/undotree',
+  --   cmd = 'UndotreeToggle',
+  --   config = [[vim.g.undotree_SetFocusWhenToggle = 1]],
+  -- }
 
   -- Git
   use {
@@ -119,7 +123,7 @@ local function init()
   use {
     'onsails/lspkind-nvim',
     'neovim/nvim-lspconfig',
-    'nvim-lua/lsp-status.nvim',
+    'nvim-lua/lsp-status.nvim', 
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'glepnir/lspsaga.nvim',
@@ -151,10 +155,10 @@ local function init()
   }
 
   -- Path navigation
-  use 'justinmk/vim-dirvish'
+  --use 'justinmk/vim-dirvish'
 
   -- LaTeX
-  use 'lervag/vimtex'
+  --use 'lervag/vimtex'
 
   -- Meson
   use 'igankevich/mesonic'
@@ -163,10 +167,10 @@ local function init()
   use 'PontusPersson/pddl.vim'
 
   -- Zig
-  use 'ziglang/zig.vim'
+  --use 'ziglang/zig.vim'
 
   -- Julia
-  use { 'JuliaEditorSupport/julia-vim', setup = [[vim.g.latex_to_unicode_tab = 'off']], opt = true }
+  --use { 'JuliaEditorSupport/julia-vim', setup = [[vim.g.latex_to_unicode_tab = 'off']], opt = true }
 
   -- Profiling
   use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
@@ -182,20 +186,29 @@ local function init()
   }
 
   -- Color scheme
-  use 'wbthomason/vim-nazgul'
-  use 'hardselius/warlock'
-  use 'arzg/vim-substrata'
-  use 'sainnhe/gruvbox-material'
+  -- use 'wbthomason/vim-nazgul'
+  -- use 'hardselius/warlock'
+  -- use 'arzg/vim-substrata'
+  -- use 'sainnhe/gruvbox-material'
   use 'folke/tokyonight.nvim'
+  -- use 'navarasu/onedark.nvim'
+  -- use 'projekt0n/github-nvim-theme'
 
   -- Notes
-  use {
-    'wbthomason/pdf-scribe.nvim',
-    config = [[require('config.pdf_scribe')]],
-    disable = true,
-  }
+  -- use {
+  --   'wbthomason/pdf-scribe.nvim',
+  --   config = [[require('config.pdf_scribe')]],
+  --   disable = true,
+  -- }
 
-  use { 'kristijanhusak/orgmode.nvim', opt = true }
+  -- use { 'kristijanhusak/orgmode.nvim', opt = true }
+
+  -- Keybindings
+  -- use {
+  --   'folke/which-key.nvim',
+  --   config = [[require('config.which_key']]
+  -- }
+
 end
 
 local plugins = setmetatable({}, {
