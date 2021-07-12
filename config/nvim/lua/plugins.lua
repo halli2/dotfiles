@@ -199,6 +199,12 @@ local function init()
   -- use 'projekt0n/github-nvim-theme'
 
   -- Notes
+  
+  use {
+    'vhyrro/neorg',
+    requires = 'nvim-lua/plenary.nvim',
+    config = [[require('config.neorg')]]
+  }
   -- use {
   --   'wbthomason/pdf-scribe.nvim',
   --   config = [[require('config.pdf_scribe')]],
