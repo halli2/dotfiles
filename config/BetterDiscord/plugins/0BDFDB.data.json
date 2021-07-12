@@ -1,6 +1,10 @@
 {
 	"PluginNameMap": {
-		"OwnerTag": "StaffTag"
+		"BadgesEverywhere": "ShowBadgesInChat",
+		"GoogleTranslateOption": "Translator",
+		"OwnerTag": "StaffTag",
+		"RemoveBlockedMessages": "RemoveBlockedUsers",
+		"RevealAllSpoilersOption": "RevealAllSpoilers"
 	},
 	"LibraryRequires": ["child_process", "electron", "fs", "path", "process", "request"],
 	"DiscordObjects": {
@@ -820,13 +824,6 @@
 			"switchItem": "ui-switch-item",
 			"switchWrapper": "ui-switch-wrapper"
 		},
-		"BadgesEverywhere": {
-			"badges": "badges-XRnWAp",
-			"badgesChat": "badgesChat-f_cbR8",
-			"badgesList": "badgesList-Aw_p52",
-			"badgesSettings": "badgesSettings-ychoGn",
-			"indicator": "indicator-8F4GGw"
-		},
 		"BetterFriendList": {
 			"mutualGuilds": "mutualGuilds-s7F2aa",
 			"nameCell": "nameCell-7F4sRs",
@@ -889,12 +886,6 @@
 		},
 		"GameActivityToggle": {
 			"added": "gameActivityToggleAdded-Yd-YxC"
-		},
-		"GoogleTranslateOption": {
-			"configButton": "configButton-lLgMs2",
-			"translateButton": "translateButton-DhP9x8",
-			"translated": "translated-5YO8i3",
-			"translating": "translating-Yi-YxC"
 		},
 		"ImageUtilities": {
 			"details": "details-9dkFPc",
@@ -974,6 +965,14 @@
 			"error": "error-k9z2IV",
 			"overlay": "spellCheckOverlay-cNSap5"
 		},
+		"ShowBadgesInChat": {
+			"badges": "badges-XRnWAp",
+			"badgesChat": "badgesChat-f_cbR8",
+			"badgesDMs": "badgesDMs-Aw_p52",
+			"badgesMembers": "badgesMembers-8Kf3S1",
+			"badgesSettings": "badgesSettings-ychoGn",
+			"indicator": "indicator-8F4GGw"
+		},
 		"ShowConnections": {
 			"connection": "connection-9Gh4sa",
 			"connectionIcon": "connectionIcon-888F4s",
@@ -1037,6 +1036,16 @@
 			"roleStyle": "roleStyle-jQ7KI2",
 			"tag": "tag-wWVHyf",
 			"voiceTag": "voiceTag-0F4Ss0"
+		},
+		"Translator": {
+			"configButton": "configButton-lLgMs2",
+			"translateButton": "translateButton-DhP9x8",
+			"translated": "translated-5YO8i3",
+			"translating": "translating-Yi-YxC"
+		},
+		"WriteUpperCase": {
+			"enabled": "enabled-7KI3Q2",
+			"quickToggleButton": "quickToggleButton-P2xDh8"
 		},
 		"NotFound": {
 			"_": "",
@@ -1353,11 +1362,6 @@
 		"_bdminimalmode": ["BD", "bdMinimalMode"],
 		"_bdpillselected": ["BD", "bdPillSelected"],
 		"_bdpillunread": ["BD", "bdPillUnread"],
-		"_badgeseverywherebadges": ["BadgesEverywhere", "badges"],
-		"_badgeseverywherebadgeschat": ["BadgesEverywhere", "badgesChat"],
-		"_badgeseverywherebadgeslist": ["BadgesEverywhere", "badgesList"],
-		"_badgeseverywherebadgessettings": ["BadgesEverywhere", "badgesSettings"],
-		"_badgeseverywhereindicator": ["BadgesEverywhere", "indicator"],
 		"_betterfriendlistmutualguilds": ["BetterFriendList", "mutualGuilds"],
 		"_betterfriendlistnamecell": ["BetterFriendList", "nameCell"],
 		"_betterfriendlisttitle": ["BetterFriendList", "title"],
@@ -1399,10 +1403,6 @@
 		"_friendnotificationstimelogmodal": ["FriendNotifications", "timeLogModal"],
 		"_friendnotificationstypelabel": ["FriendNotifications", "typeLabel"],
 		"_gameactivitytoggleadded": ["GameActivityToggle", "added"],
-		"_googletranslateoptionconfigbutton": ["GoogleTranslateOption", "configButton"],
-		"_googletranslateoptiontranslatebutton": ["GoogleTranslateOption", "translateButton"],
-		"_googletranslateoptiontranslated": ["GoogleTranslateOption", "translated"],
-		"_googletranslateoptiontranslating": ["GoogleTranslateOption", "translating"],
 		"_imageutilitiesdetails": ["ImageUtilities", "details"],
 		"_imageutilitiesdetailsadded": ["ImageUtilities", "detailsAdded"],
 		"_imageutilitiesdetailslabel": ["ImageUtilities", "detailsLabel"],
@@ -1457,11 +1457,16 @@
 		"_serverfoldersiconswatchpreview": ["ServerFolders", "iconSwatchPreview"],
 		"_serverfoldersiconswatchnopreview": ["ServerFolders", "iconSwatchNoPreview"],
 		"_serverfoldersiconswatchselected": ["ServerFolders", "iconSwatchSelected"],
-		"_showhiddenchannelsaccessmodal": ["ShowHiddenChannels", "accessModal"],
+		"_showbadgesinchatbadges": ["ShowBadgesInChat", "badges"],
+		"_showbadgesinchatbadgeschat": ["ShowBadgesInChat", "badgesChat"],
+		"_showbadgesinchatbadgeslist": ["ShowBadgesInChat", "badgesList"],
+		"_showbadgesinchatbadgessettings": ["ShowBadgesInChat", "badgesSettings"],
+		"_showbadgesinchatindicator": ["ShowBadgesInChat", "indicator"],
 		"_showconnectionsconnection": ["ShowConnections", "connection"],
 		"_showconnectionsconnections": ["ShowConnections", "connections"],
 		"_showconnectionsicon": ["ShowConnections", "connectionIcon"],
 		"_showconnectionsverifiedbadge": ["ShowConnections", "verifiedBadge"],
+		"_showhiddenchannelsaccessmodal": ["ShowHiddenChannels", "accessModal"],
 		"_spellcheckerror": ["SpellCheck", "error"],
 		"_spellcheckoverlay": ["SpellCheck", "overlay"],
 		"_spotifycontrolsactivitybutton": ["SpotifyControls", "activityButton"],
@@ -1509,6 +1514,12 @@
 		"_toproleseverywhererolestyle": ["TopRolesEverywhere", "roleStyle"],
 		"_toproleseverywheretag": ["TopRolesEverywhere", "tag"],
 		"_toproleseverywherevoicetag": ["TopRolesEverywhere", "voiceTag"],
+		"_translatorconfigbutton": ["Translator", "configButton"],
+		"_translatortranslatebutton": ["Translator", "translateButton"],
+		"_translatortranslated": ["Translator", "translated"],
+		"_translatortranslating": ["Translator", "translating"],
+		"_writeuppercasequicktogglebutton": ["WriteUpperCase", "quickToggleButton"],
+		"_writeuppercasequicktogglebuttonenabled": ["WriteUpperCase", "enabled"],
 		"_repoauthor": ["BD", "bdAuthor"],
 		"_repobutton": ["BD", "bdButton"],
 		"_repobuttondanger": ["BD", "bdButtonDanger"],

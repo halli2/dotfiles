@@ -68,7 +68,7 @@ local function init()
     cmd = 'Telescope',
   }
   
-  -- Cheatsheet
+  -- Cheatsheet, Todo; make it work more like 'normal' in telescope i.e. scroll through those menus?
   use {
     'sudormrfbin/cheatsheet.nvim',
     requires = {
@@ -155,6 +155,10 @@ local function init()
   }
 
   -- Path navigation
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons'},
+  }
   --use 'justinmk/vim-dirvish'
 
   -- LaTeX
