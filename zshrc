@@ -16,6 +16,9 @@ bindkey -v
 zstyle :compinstall filename '/home/halli/.zshrc'
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+# Completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' # Case insensitive, UNLESS usage of upper case
+zstyle ':completion:*' menu select
 
 
 autoload -Uz compinit

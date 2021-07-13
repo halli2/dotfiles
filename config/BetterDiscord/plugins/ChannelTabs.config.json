@@ -7,11 +7,11 @@
     "settings": {
         "tabs": [
             {
-                "name": "#crypto-chat",
-                "url": "/channels/436247542737534977/469778801316986880",
+                "name": "#questions",
+                "url": "/channels/436247542737534977/436250985682173954",
                 "selected": true,
                 "iconUrl": "https://cdn.discordapp.com/icons/436247542737534977/06253d9b67ab6830d65dfc063a24ccd3.webp?size=128",
-                "channelId": "469778801316986880"
+                "channelId": "436250985682173954"
             }
         ],
         "favs": [
