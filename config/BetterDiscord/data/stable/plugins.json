@@ -8,5 +8,6 @@
     "ThemeRepo": false,
     "ChannelTabs": true,
     "ZeresPluginLibrary": true,
-    "discordExperiments": false
+    "discordExperiments": false,
+    "BugReportHelper": true
 }

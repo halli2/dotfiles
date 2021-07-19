@@ -95,7 +95,7 @@
 			]
 		},
 		"scroll-step": 5,
-		"on-click": "pulseeffects",
+		"on-click": "easyeffects",
 		"on-click-right": "pavucontrol"
 	},
 	"memory": {

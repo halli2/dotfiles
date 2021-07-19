@@ -1,231 +1,97 @@
-local packer = nil
-local function init()
-  if packer == nil then
-    packer = require 'packer'
-    packer.init { disable_commands = true }
-  end
+-- Bootstrapper
+local execute = vim.api.nvim_command
+local fn = vim.fn
 
-  local use = packer.use
-  packer.reset()
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-  -- Packer
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  execute 'packadd packer.nvim'
+end
+
+-- Packages
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  -- Async building & commands
-  use { 'tpope/vim-dispatch', cmd = { 'Dispatch', 'Make', 'Focus', 'Start' } }
-
-  -- Registers
-  -- use 'junegunn/vim-peekaboo'
-
+  -- LSP
   use {
-    'camspiers/snap',
-    rocks = 'fzy',
-    config = [[require('config.snap')]]
-  }
-
-  -- Marks
-  use { 'kshenoy/vim-signature', config = [[require('config.signature')]], disable = true }
-
-  use { 'tversteeg/registers.nvim', keys = { { 'n', '"' }, { 'i', '<c-r>' } } }
-  -- Buffer management
-  use { 'mhinz/vim-sayonara', cmd = 'Sayonara' }
-
-  -- Movement
-  use { 'chaoren/vim-wordmotion', 'justinmk/vim-sneak' }
-
-  -- Quickfix
-  -- use { 'Olical/vim-enmasse', cmd = 'EnMasse' }
-  -- use 'kevinhwang91/nvim-bqf'
-
-  -- Indentation tracking
-  use 'lukas-reineke/indent-blankline.nvim'
-
-  -- Commenting
-  use 'tomtom/tcomment_vim'
-
-  -- Wrapping/delimiters
-  use {
-    'machakann/vim-sandwich',
-    { 'andymass/vim-matchup', setup = [[require('config.matchup')]], event = 'BufEnter' },
-  }
-
-  -- Search
-  use 'romainl/vim-cool'
-
-  -- Prettification
-  use 'junegunn/vim-easy-align'
-  use 'mhartington/formatter.nvim'
-
-  -- Text objects
-  -- use 'wellle/targets.vim'
-
-  -- Search
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } },
-    setup = [[require('config.telescope_setup')]],
-    config = [[require('config.telescope')]],
-    cmd = 'Telescope',
-  }
-  
-  -- Cheatsheet, Todo; make it work more like 'normal' in telescope i.e. scroll through those menus?
-  use {
-    'sudormrfbin/cheatsheet.nvim',
-    requires = {
-      {'nvim-telescope/telescope.nvim'},
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'},
-    }
-  }
-
-  -- Project Management/Sessions
-  -- use {
-  --   'dhruvasagar/vim-prosession',
-  --   after = 'vim-obsession',
-  --   requires = { { 'tpope/vim-obsession', cmd = 'Prosession' } },
-  --   config = [[require('config.prosession')]],
-  -- }
-
-  -- Undo tree
-  -- use {
-  --   'mbbill/undotree',
-  --   cmd = 'UndotreeToggle',
-  --   config = [[vim.g.undotree_SetFocusWhenToggle = 1]],
-  -- }
-
-  -- Git
-  use {
-    { 'tpope/vim-fugitive', cmd = { 'Git', 'Gstatus', 'Gblame', 'Gpush', 'Gpull' }, disable = true },
-    {
-      'lewis6991/gitsigns.nvim',
-      requires = { 'nvim-lua/plenary.nvim' },
-      config = [[require('config.gitsigns')]],
-      event = 'BufEnter',
-    },
-    { 'TimUntersberger/neogit', cmd = 'Neogit', config = [[require('config.neogit')]] },
-  }
-
-  -- Pretty symbols
-  use 'kyazdani42/nvim-web-devicons'
-
-  -- Terminal
-  use 'voldikss/vim-floaterm'
-
-  -- REPLs
-  use {
-    'hkupty/iron.nvim',
-    setup = [[vim.g.iron_map_defaults = 0]],
-    config = [[require('config.iron')]],
-    cmd = { 'IronRepl', 'IronSend', 'IronReplHere' },
-  }
-
-  -- Completion and linting
-  use {
-    'onsails/lspkind-nvim',
     'neovim/nvim-lspconfig',
-    'nvim-lua/lsp-status.nvim', 
-    'folke/trouble.nvim',
-    'ray-x/lsp_signature.nvim',
-    'glepnir/lspsaga.nvim',
-    'kabouzeid/nvim-lspinstall'
+    config = 'require("config/lsp")'
   }
+  use {
+    'nvim-lua/lsp-status.nvim',
+  }
+  use 'L3MON4D3/LuaSnip'
+  use 'hrsh7th/nvim-compe'
+  --[[ use {
+    'ray-x/navigator.lua',
+    requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
+   config = 'require"navigator".setup()'
+  } ]]
 
-  -- Highlights
+  -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
       'nvim-treesitter/nvim-treesitter-refactor',
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/playground'
     },
-    run = ':TSUpdate',
+
+    run ={
+      ':TSUpdate',
+      ':TSInstall query',
+      }
   }
 
-  -- Just for tracking progess until this is ready for use
-  use 'mfussenegger/nvim-lint'
+  -- DAP
+  use 'mfussenegger/nvim-dap'
 
-  use { 'hrsh7th/nvim-compe', config = [[require('config.compe')]], event = 'InsertEnter *' }
-  use { 'hrsh7th/vim-vsnip', config = [[require('config.vsnip')]], event = 'InsertEnter *' }
-
-  -- Debugger
-  use { 'mfussenegger/nvim-dap', opt = true }
   use {
-    'puremourning/vimspector',
-    setup = [[vim.g.vimspector_enable_mappings = 'HUMAN']],
-    disable = true,
+    'rcarriga/nvim-dap-ui',
+    --config = 'require("config/dapui")'
   }
+  use 'theHamsta/nvim-dap-virtual-text'
 
-  -- Path navigation
+  -- Go
+ use {
+   'ray-x/go.nvim',
+   config = 'require("config/go")'
+ }
+
+  -- Telescope
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'},
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim'
+    },
   }
-  --use 'justinmk/vim-dirvish'
 
-  -- LaTeX
-  --use 'lervag/vimtex'
+  -- Buffer deletion
+  use 'mhinz/vim-sayonara'
 
-  -- Meson
-  use 'igankevich/mesonic'
-
-  -- PDDL
-  use 'PontusPersson/pddl.vim'
-
-  -- Zig
-  --use 'ziglang/zig.vim'
-
-  -- Julia
-  --use { 'JuliaEditorSupport/julia-vim', setup = [[vim.g.latex_to_unicode_tab = 'off']], opt = true }
-
-  -- Profiling
-  use { 'dstein64/vim-startuptime', cmd = 'StartupTime', config = [[vim.g.startuptime_tries = 10]] }
-
-  -- Plugin development
-  use 'folke/lua-dev.nvim'
-
-  -- Highlight colors
+  -- Comments
   use {
-    'norcalli/nvim-colorizer.lua',
-    ft = { 'css', 'javascript', 'vim', 'html' },
-    config = [[require('colorizer').setup {'css', 'javascript', 'vim', 'html'}]],
+    'b3nj5m1n/kommentary',
+    config = 'require("kommentary.config").use_extended_mappings()'
   }
 
-  -- Color scheme
-  -- use 'wbthomason/vim-nazgul'
-  -- use 'hardselius/warlock'
-  -- use 'arzg/vim-substrata'
-  -- use 'sainnhe/gruvbox-material'
+  -- Indentation tracking
+  use 'lukas-reineke/indent-blankline.nvim'
+
+  -- Git
+  use 'tpope/vim-fugitive'
+
+  -- Pretty symbol
+  use 'kyazdani42/nvim-web-devicons'
+
+  -- ColorScheme
   use 'folke/tokyonight.nvim'
-  -- use 'navarasu/onedark.nvim'
-  -- use 'projekt0n/github-nvim-theme'
 
-  -- Notes
-  
+  -- Which key?
   use {
-    'vhyrro/neorg',
-    requires = 'nvim-lua/plenary.nvim',
-    config = [[require('config.neorg')]]
+    'folke/which-key.nvim',
+    config = 'require("config/which-key")'
   }
-  -- use {
-  --   'wbthomason/pdf-scribe.nvim',
-  --   config = [[require('config.pdf_scribe')]],
-  --   disable = true,
-  -- }
 
-  -- use { 'kristijanhusak/orgmode.nvim', opt = true }
-
-  -- Keybindings
-  -- use {
-  --   'folke/which-key.nvim',
-  --   config = [[require('config.which_key']]
-  -- }
-
-end
-
-local plugins = setmetatable({}, {
-  __index = function(_, key)
-    init()
-    return packer[key]
-  end,
-})
-
-return plugins
+end)

@@ -1,0 +1,1 @@
+configure navigator.lua

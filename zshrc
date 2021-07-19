@@ -25,6 +25,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# PATH
+
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # Zplug, plugin manager. https://github.com/zplug/zplug
 source /usr/share/zsh/scripts/zplug/init.zsh
@@ -55,6 +58,13 @@ fi
 # Source plugins and add commants to $PATH
 zplug load #--verbose
 
+# Defaults
+export VISUAL=nvim
+export EDITOR=nvim
+export BROWSER=firefox-nightly
+export TERMINAL='kitty'
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_WEBRENDER=1
 
 #Aliases
 alias ls='ls --color'
