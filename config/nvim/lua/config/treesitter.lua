@@ -1,7 +1,7 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'maintained',
   highlight = {enable = true, use_languagetree = true},
-  indent = {enable = false},
+  indent = {enable = true}, -- EXPERIMENTAL???
   incremental_selection = {
     enable = true,
     keymaps = {

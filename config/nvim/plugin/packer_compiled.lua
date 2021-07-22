@@ -136,6 +136,7 @@ _G.packer_plugins = {
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
+    config = { 'require("config/treesitter")' },
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
@@ -191,6 +192,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: go.nvim
+time([[Config for go.nvim]], true)
+require("config/go")
+time([[Config for go.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require("config/lsp")
@@ -207,14 +212,14 @@ time([[Config for which-key.nvim]], false)
 time([[Config for neoterm.nvim]], true)
 require("config/neoterm")
 time([[Config for neoterm.nvim]], false)
--- Config for: go.nvim
-time([[Config for go.nvim]], true)
-require("config/go")
-time([[Config for go.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 require('config/gitsigns')
 time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("config/treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: kommentary
 time([[Config for kommentary]], true)
 require("kommentary.config").use_extended_mappings()

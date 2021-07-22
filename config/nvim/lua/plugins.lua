@@ -50,7 +50,8 @@ return require('packer').startup(function(use)
     run ={
       ':TSUpdate',
       ':TSInstall query',
-      }
+      },
+    config = 'require("config/treesitter")',
   }
 
   -- DAP
