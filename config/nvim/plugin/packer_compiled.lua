@@ -105,6 +105,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
+  ["neoterm.nvim"] = {
+    config = { 'require("config/neoterm")' },
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/neoterm.nvim"
+  },
   ["nvim-compe"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-compe"
@@ -198,10 +203,10 @@ time([[Config for lualine.nvim]], false)
 time([[Config for which-key.nvim]], true)
 require("config/which-key")
 time([[Config for which-key.nvim]], false)
--- Config for: kommentary
-time([[Config for kommentary]], true)
-require("kommentary.config").use_extended_mappings()
-time([[Config for kommentary]], false)
+-- Config for: neoterm.nvim
+time([[Config for neoterm.nvim]], true)
+require("config/neoterm")
+time([[Config for neoterm.nvim]], false)
 -- Config for: go.nvim
 time([[Config for go.nvim]], true)
 require("config/go")
@@ -210,6 +215,10 @@ time([[Config for go.nvim]], false)
 time([[Config for gitsigns.nvim]], true)
 require('config/gitsigns')
 time([[Config for gitsigns.nvim]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+require("kommentary.config").use_extended_mappings()
+time([[Config for kommentary]], false)
 if should_profile then save_profiles() end
 
 end)

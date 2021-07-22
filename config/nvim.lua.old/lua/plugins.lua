@@ -123,7 +123,7 @@ local function init()
   use {
     'onsails/lspkind-nvim',
     'neovim/nvim-lspconfig',
-    'nvim-lua/lsp-status.nvim', 
+    'nvim-lua/lsp-status.nvim',
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'glepnir/lspsaga.nvim',

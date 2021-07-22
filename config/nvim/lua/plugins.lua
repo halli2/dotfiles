@@ -99,6 +99,13 @@ return require('packer').startup(function(use)
     },
     config = "require('config/gitsigns')"
   }
+
+  -- Neoterm
+  use {
+    'itmecho/neoterm.nvim',
+    config = 'require("config/neoterm")'
+  }
+
   -- Pretty symbol
   use 'kyazdani42/nvim-web-devicons'
 
