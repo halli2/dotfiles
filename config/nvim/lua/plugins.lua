@@ -91,8 +91,14 @@ return require('packer').startup(function(use)
 
   -- Git
   -- use 'tpope/vim-fugitive'
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-
+  -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = "require('config/gitsigns')"
+  }
   -- Pretty symbol
   use 'kyazdani42/nvim-web-devicons'
 

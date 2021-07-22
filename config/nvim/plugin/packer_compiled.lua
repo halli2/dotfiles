@@ -73,6 +73,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
+  ["gitsigns.nvim"] = {
+    config = { "require('config/gitsigns')" },
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+  },
   ["go.nvim"] = {
     config = { 'require("config/go")' },
     loaded = true,
@@ -99,10 +104,6 @@ _G.packer_plugins = {
     config = { 'require("config/lualine")' },
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lualine.nvim"
-  },
-  neogit = {
-    loaded = true,
-    path = "/home/halli/.local/share/nvim/site/pack/packer/start/neogit"
   },
   ["nvim-compe"] = {
     loaded = true,
@@ -205,6 +206,10 @@ time([[Config for kommentary]], false)
 time([[Config for go.nvim]], true)
 require("config/go")
 time([[Config for go.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('config/gitsigns')
+time([[Config for gitsigns.nvim]], false)
 if should_profile then save_profiles() end
 
 end)
