@@ -28,7 +28,8 @@ compinit
 # PATH
 
 export PATH=$PATH:$(go env GOPATH)/bin
-
+export PATH=$PATH:$(gem environment gempath)/bin
+export PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
 # Zplug, plugin manager. https://github.com/zplug/zplug
 source /usr/share/zsh/scripts/zplug/init.zsh
 

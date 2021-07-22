@@ -91,6 +91,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
+  ["lua-dev.nvim"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/lua-dev.nvim"
+  },
+  ["lualine.nvim"] = {
+    config = { 'require("config/lualine")' },
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+  },
+  neogit = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/neogit"
+  },
   ["nvim-compe"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-compe"
@@ -111,6 +124,10 @@ _G.packer_plugins = {
     config = { 'require("config/lsp")' },
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -140,6 +157,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
+  ["registers.nvim"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/registers.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -148,13 +169,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/halli/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
   ["vim-sayonara"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/vim-sayonara"
+  },
+  ["vim-sneak"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/vim-sneak"
   },
   ["which-key.nvim"] = {
     config = { 'require("config/which-key")' },
@@ -164,22 +185,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: kommentary
-time([[Config for kommentary]], true)
-require("kommentary.config").use_extended_mappings()
-time([[Config for kommentary]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require("config/lsp")
 time([[Config for nvim-lspconfig]], false)
--- Config for: go.nvim
-time([[Config for go.nvim]], true)
-require("config/go")
-time([[Config for go.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("config/lualine")
+time([[Config for lualine.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 require("config/which-key")
 time([[Config for which-key.nvim]], false)
+-- Config for: kommentary
+time([[Config for kommentary]], true)
+require("kommentary.config").use_extended_mappings()
+time([[Config for kommentary]], false)
+-- Config for: go.nvim
+time([[Config for go.nvim]], true)
+require("config/go")
+time([[Config for go.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

@@ -13,6 +13,13 @@ end
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  -- File explorer
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+  }
+
+
   -- LSP
   use {
     'neovim/nvim-lspconfig',
@@ -28,6 +35,9 @@ return require('packer').startup(function(use)
     requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
    config = 'require"navigator".setup()'
   } ]]
+
+  -- Lua dev
+  use 'folke/lua-dev.nvim'
 
   -- Treesitter
   use {
@@ -80,18 +90,33 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
 
   -- Git
-  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-fugitive'
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
   -- Pretty symbol
   use 'kyazdani42/nvim-web-devicons'
 
   -- ColorScheme
   use 'folke/tokyonight.nvim'
+  -- Statusline
+  use {
+    'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = 'require("config/lualine")'
+  }
 
   -- Which key?
   use {
     'folke/which-key.nvim',
     config = 'require("config/which-key")'
+  }
+
+  -- Registers, (paste)
+  use 'tversteeg/registers.nvim'
+
+  -- Sneak
+  use {
+    'justinmk/vim-sneak'
   }
 
 end)

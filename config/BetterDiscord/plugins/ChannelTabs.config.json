@@ -7,11 +7,11 @@
     "settings": {
         "tabs": [
             {
-                "name": "#crypto-charts-only",
-                "url": "/channels/436247542737534977/436250699660001320",
+                "name": "#technical-trading",
+                "url": "/channels/290891518829658112/319880548418060289",
                 "selected": true,
-                "iconUrl": "https://cdn.discordapp.com/icons/436247542737534977/06253d9b67ab6830d65dfc063a24ccd3.webp?size=128",
-                "channelId": "436250699660001320"
+                "iconUrl": "https://cdn.discordapp.com/icons/290891518829658112/b4630759fb883239005d4ca637d5884a.webp?size=128",
+                "channelId": "319880548418060289"
             }
         ],
         "favs": [
@@ -38,6 +38,12 @@
                 "iconUrl": "https://cdn.discordapp.com/icons/290891518829658112/b4630759fb883239005d4ca637d5884a.webp?size=128",
                 "url": "/channels/290891518829658112/319880548418060289",
                 "channelId": "319880548418060289"
+            },
+            {
+                "name": "#💿crypto-currency",
+                "iconUrl": "https://cdn.discordapp.com/icons/785723181742817301/a_e67ef3a9371fe8813ae668573c34f953.webp?size=128",
+                "url": "/channels/785723181742817301/798014136235589683",
+                "channelId": "798014136235589683"
             }
         ],
         "showTabBar": true,
