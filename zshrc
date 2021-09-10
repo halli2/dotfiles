@@ -32,6 +32,7 @@ export PATH=$PATH:$(gem environment gempath)/bin
 export PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:~/scripts
 export PATH=$PATH:~/ichibot
+export PATH=$PATH:~/.local/bin
 # Zplug, plugin manager. https://github.com/zplug/zplug
 source /usr/share/zsh/scripts/zplug/init.zsh
 
