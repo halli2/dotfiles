@@ -133,4 +133,14 @@ return require('packer').startup(function(use)
     'justinmk/vim-sneak'
   }
 
+  -- Markdown
+  --[[ use {
+    'plasticboy/vim-markdown',
+    requires = {'godlygeek/tabular'}
+  } ]]
+  use {
+    'junegunn/vim-easy-align'
+  }
+
+
 end)

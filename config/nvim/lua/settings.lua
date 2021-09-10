@@ -8,7 +8,7 @@ local opt = utils.opt
 -- Settings
 local buffer = {o, bo}
 local window = {o, wo}
-opt('scrolloff', 7)
+-- opt('scrolloff', 7)
 opt('number', true, window)
 opt('relativenumber', true, window)
 opt('tabstop', 4, buffer)

@@ -10,7 +10,7 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt autocd
-bindkey -v
+#bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/halli/.zshrc'
@@ -30,6 +30,8 @@ compinit
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$(gem environment gempath)/bin
 export PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:~/scripts
+export PATH=$PATH:~/ichibot
 # Zplug, plugin manager. https://github.com/zplug/zplug
 source /usr/share/zsh/scripts/zplug/init.zsh
 
@@ -47,6 +49,9 @@ zplug 'plugins/git', from:oh-my-zsh
 
 # Load theme
 zplug 'romkatv/powerlevel10k', as:theme, depth:1
+
+# Vim mode
+# zplug 'softmoth/zsh-vim-mode'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -76,6 +81,7 @@ alias gsa='grimshot save area'
 alias swayl='swaylock -c 000000'
 alias yays='yay -Slq | fzf --multi --preview "yay -Si {1}" | xargs -ro yay -S'
 alias yeets='yay -Qq | fzf --multi --preview "yay -Qi {1}" | xargs -rp yay -Rns'
+alias pineapple="curl -s https://raw.githubusercontent.com/pineappleEA/Pineapple-Linux/master/pineapple.sh | sh -s --"
 #alias yayss='yay -Slq | fzf --multi --preview \'cat <(yay -Si {1}= <(yay -Fl {1} | awk "{print \$2}")\' | xargs -ro sudo yay -S'
 
 # param alias

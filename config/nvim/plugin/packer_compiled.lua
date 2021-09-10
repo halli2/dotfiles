@@ -176,6 +176,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
+  ["vim-easy-align"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/vim-easy-align"
+  },
   ["vim-sayonara"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/vim-sayonara"
