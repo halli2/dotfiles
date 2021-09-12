@@ -54,5 +54,6 @@ opt('termguicolors', true)
 g.tokyonight_style = 'storm'
 g.tokyonight_italic_functions = true
 g.tokyonight_sidebars = {'terminal', 'packer'}
+g.tokyonight_colors = {comment = '#a8a8a8'}
 -- vim.g.tokyonight_colors = {hint = 'orange', error = '#ff0000'}
 cmd'colorscheme tokyonight'
