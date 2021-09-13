@@ -44,8 +44,8 @@ local fences = {
 g.markdown_fenced_languages = fences
 
 -- Golang
-cmd('autocmd BufWritePre *.go :silent! lua require("go.format").gofmt()')
-cmd('autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)')
+--[[ cmd('autocmd BufWritePre *.go :silent! lua require("go.format").gofmt()')
+cmd('autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)') ]]
 cmd('autocmd Filetype go setlocal noexpandtab')
 
 

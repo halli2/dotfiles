@@ -8,6 +8,10 @@ local cmd = vim.cmd
 g.mapleader = ' '
 g.maplocalleader = ','
 
+-- General stuff
+map('i', 'jk', '<Esc>')
+map('i', 'kj', '<Esc>')
+
 ---- Telescope
 map('n', '<localleader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
 map('n', '<localleader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
