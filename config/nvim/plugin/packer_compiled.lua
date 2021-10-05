@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/halli/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/halli/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/halli/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/halli/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/halli/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
+local package_path_str = "/home/halli/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/halli/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/halli/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/halli/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/halli/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -73,10 +73,45 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
-  ["gitsigns.nvim"] = {
-    config = { "require('config/gitsigns')" },
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/halli/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-calc"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-calc"
+  },
+  ["cmp-emoji"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-emoji"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lua"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-path"
+  },
+  ["cmp-spell"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-spell"
+  },
+  ["cmp-tabnine"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-tabnine"
+  },
+  ["cmp-treesitter"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp-treesitter"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
   },
   ["go.nvim"] = {
     config = { 'require("config/go")' },
@@ -96,6 +131,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+  },
   ["lua-dev.nvim"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lua-dev.nvim"
@@ -105,20 +144,31 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
+  neorg = {
+    config = { 'require("config/neorg")' },
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/neorg"
+  },
+  ["neorg-telescope"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/neorg-telescope"
+  },
   ["neoterm.nvim"] = {
     config = { 'require("config/neoterm")' },
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/neoterm.nvim"
   },
-  ["nvim-compe"] = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-dap"] = {
+    config = { 'require("config/dap")' },
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-dap"
   },
   ["nvim-dap-ui"] = {
+    config = { 'require("config/dapui")' },
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-dap-ui"
   },
@@ -132,6 +182,7 @@ _G.packer_plugins = {
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
@@ -143,6 +194,10 @@ _G.packer_plugins = {
   ["nvim-treesitter-refactor"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
+  },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -167,6 +222,11 @@ _G.packer_plugins = {
   ["registers.nvim"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/registers.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    config = { 'require("config/rust")' },
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/rust-tools.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -196,38 +256,54 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: go.nvim
-time([[Config for go.nvim]], true)
-require("config/go")
-time([[Config for go.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require("config/lsp")
-time([[Config for nvim-lspconfig]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 require("config/lualine")
 time([[Config for lualine.nvim]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-require("config/which-key")
-time([[Config for which-key.nvim]], false)
--- Config for: neoterm.nvim
-time([[Config for neoterm.nvim]], true)
-require("config/neoterm")
-time([[Config for neoterm.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('config/gitsigns')
-time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("config/lsp")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: go.nvim
+time([[Config for go.nvim]], true)
+require("config/go")
+time([[Config for go.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require("config/treesitter")
 time([[Config for nvim-treesitter]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+require("config/rust")
+time([[Config for rust-tools.nvim]], false)
+-- Config for: neorg
+time([[Config for neorg]], true)
+require("config/neorg")
+time([[Config for neorg]], false)
 -- Config for: kommentary
 time([[Config for kommentary]], true)
 require("kommentary.config").use_extended_mappings()
 time([[Config for kommentary]], false)
+-- Config for: neoterm.nvim
+time([[Config for neoterm.nvim]], true)
+require("config/neoterm")
+time([[Config for neoterm.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require("config/dap")
+time([[Config for nvim-dap]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+require("config/which-key")
+time([[Config for which-key.nvim]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+require("config/dapui")
+time([[Config for nvim-dap-ui]], false)
 if should_profile then save_profiles() end
 
 end)

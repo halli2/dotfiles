@@ -36,9 +36,73 @@ local on_attach = function(client, bufnr)
 
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- tabnine for cmp
+local tabnine = require('cmp_tabnine.config')
+tabnine:setup({
+        max_lines = 1000;
+        max_num_results = 20;
+        sort = true;
+	run_on_every_keystroke = true;
+})
+-- Setup nvim-cmp.
+local cmp = require'cmp'
+-- Set completeopt to have better completion experience
+vim.o.completeopt = 'menuone,noinsert'
 
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      -- For `vsnip` user.
+      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+
+      -- For `luasnip` user.
+      require('luasnip').lsp_expand(args.body)
+
+      -- For `ultisnips` user.
+      -- vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true }),
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'cmp_tabnine' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
+    -- { name = 'nvim_lua' },
+    -- { name = 'treesitter' },
+    -- { name = 'calc' },
+    -- { name = 'emoji' },
+    -- { name = 'spell' },
+ },
+ formatting = {
+  format = function(entry, vim_item)
+    -- fancy icons and a name of kind
+    vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+
+    -- set a name for each source
+    vim_item.menu = ({
+      buffer = "[Buffer]",
+      nvim_lsp = "[LSP]",
+      luasnip = "[LuaSnip]",
+      nvim_lua = "[Lua]",
+      latex_symbols = "[Latex]",
+      cmp_tabnine = "[TN]",
+    })[entry.source.name]
+    return vim_item
+  end,
+},
+})
 
 local system_name
 if vim.fn.has("mac") == 1 then
@@ -50,7 +114,6 @@ elseif vim.fn.has('win32') == 1 then
 else
   print("Unsupported system for sumneko")
 end
-
 
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
@@ -83,7 +146,7 @@ require'lspconfig'.sumneko_lua.setup {
       telemetry = {
         enable = false,
       },
-      capabilities = capabilities
+      capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
     },
   },
 }
@@ -97,88 +160,11 @@ for _, lsp in ipairs(servers) do
     flags = {
       debounce_text_changes = 125,
     },
-    capabilities = capabilities,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   }
 end
-
-
--- Set completeopt to have better completion experience
-vim.o.completeopt = 'menuone,noinsert'
-
--- Compe setup
-require('compe').setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'disable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-  source = {
-    path = true,
-    nvim_lsp = true,
-    luasnip = true,
-    buffer = true,
-    calc = false,
-    nvim_lua = false,
-    vsnip = false,
-    ultisnips = false,
-  },
-}
-
--- Utility functions for compe and luasnip
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-  local col = vim.fn.col '.' - 1
-  if col == 0 or vim.fn.getline('.'):sub(col, col):match '%s' then
-    return true
-  else
-    return false
-  end
-end
-
--- use (s-)tab to:
--- move to prev/next item in completion menu
--- juump to prev/ next snippets placeholder
-local luasnip = require 'luasnip'
-
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t '<C-n>'
-  elseif luasnip.expand_or_jumpable() then
-    return t '<Plug>luasnip-expand-or-jump'
-  elseif check_back_space() then
-    return t '<Tab>'
-  else
-    return vim.fn['compe#complete']()
-  end
-end
-
-_G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t '<C-p>'
-  elseif luasnip.jumpable(-1) then
-    return t '<Plug>luasnip-jump-prev'
-  else
-    return t '<S-tab>'
-  end
-end
-
--- Map tab to the above tab complete functions
-vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('s', '<Tab>', 'v:lua.tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-vim.api.nvim_set_keymap('s', '<S-Tab>', 'v:lua.s_tab_complete()', {expr = true})
-
--- Map compe confirm and complete functions
-vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', {expr = true})
-vim.api.nvim_set_keymap('i', '<c-space>', 'compe#complete()', {expr = true})
-
+--[[ require'lspconfig'.rust_analyzer.setup{
+  on_attach = on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  -- flags = { debounce_text_changes = 125 },
+} ]]

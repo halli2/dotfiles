@@ -2,6 +2,7 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
+
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -17,6 +18,7 @@ return require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function() require'nvim-tree'.setup {} end
   }
 
 
@@ -28,8 +30,23 @@ return require('packer').startup(function(use)
   use {
     'nvim-lua/lsp-status.nvim',
   }
+
+  -- Completion
+  use 'onsails/lspkind-nvim'
   use 'L3MON4D3/LuaSnip'
-  use 'hrsh7th/nvim-compe'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'ray-x/cmp-treesitter'
+  use 'hrsh7th/cmp-calc'
+  use 'hrsh7th/cmp-emoji'
+  use 'f3fora/cmp-spell'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+
+  -- use 'hrsh7th/nvim-compe'
   --[[ use {
     'ray-x/navigator.lua',
     requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
@@ -55,11 +72,14 @@ return require('packer').startup(function(use)
   }
 
   -- DAP
-  use 'mfussenegger/nvim-dap'
+  use {
+    'mfussenegger/nvim-dap',
+  config = 'require("config/dap")'
+  }
 
   use {
     'rcarriga/nvim-dap-ui',
-    --config = 'require("config/dapui")'
+    config = 'require("config/dapui")'
   }
   use 'theHamsta/nvim-dap-virtual-text'
 
@@ -68,6 +88,8 @@ return require('packer').startup(function(use)
    'ray-x/go.nvim',
    config = 'require("config/go")'
  }
+
+
 
   -- Telescope
   use {
@@ -93,13 +115,13 @@ return require('packer').startup(function(use)
   -- Git
   -- use 'tpope/vim-fugitive'
   -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use {
+  --[[ use {
     'lewis6991/gitsigns.nvim',
     requires = {
       'nvim-lua/plenary.nvim'
     },
     config = "require('config/gitsigns')"
-  }
+  } ]]
 
   -- Neoterm
   use {
@@ -142,5 +164,20 @@ return require('packer').startup(function(use)
     'junegunn/vim-easy-align'
   }
 
+  use {
+    "nvim-neorg/neorg",
+    config = 'require("config/neorg")',
+    requires = {"nvim-lua/plenary.nvim", 'nvim-neorg/neorg-telescope'}
+  }
+
+  use {
+    'windwp/nvim-ts-autotag',
+  }
+
+ -- Rust
+ use {
+   'simrat39/rust-tools.nvim',
+   config = 'require("config/rust")'
+ }
 
 end)
