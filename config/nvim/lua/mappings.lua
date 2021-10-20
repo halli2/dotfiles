@@ -78,4 +78,20 @@ map('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   -- if client.resolved_capabilities.document_formatting then
     -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-  -- end
+    -- end
+-- FZF_LSP
+map('n', 'GD', '<Cmd>lua require"fzf_lsp".declaration_call()<CR>', opts)
+map('n', 'Gd', '<Cmd>lua require"fzf_lsp".definition_call()<CR>', opts)
+
+--[[ require'fzf_lsp'.code_action_call
+require'fzf_lsp'.range_code_action_call
+require'fzf_lsp'.definition_call
+require'fzf_lsp'.declaration_call
+require'fzf_lsp'.type_definition_call
+require'fzf_lsp'.implementation_call
+require'fzf_lsp'.references_call
+require'fzf_lsp'.document_symbol_call
+require'fzf_lsp'.workspace_symbol_call
+require'fzf_lsp'.incoming_calls_call
+require'fzf_lsp'.outgoing_calls_call
+require'fzf_lsp'.diagnostic_call ]]

@@ -46,13 +46,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
-  -- use 'hrsh7th/nvim-compe'
-  --[[ use {
-    'ray-x/navigator.lua',
-    requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'},
-   config = 'require"navigator".setup()'
-  } ]]
-
   -- Lua dev
   use 'folke/lua-dev.nvim'
 
@@ -88,8 +81,6 @@ return require('packer').startup(function(use)
    'ray-x/go.nvim',
    config = 'require("config/go")'
  }
-
-
 
   -- Telescope
   use {
@@ -162,12 +153,6 @@ return require('packer').startup(function(use)
   } ]]
   use {
     'junegunn/vim-easy-align'
-  }
-
-  use {
-    "nvim-neorg/neorg",
-    config = 'require("config/neorg")',
-    requires = {"nvim-lua/plenary.nvim", 'nvim-neorg/neorg-telescope'}
   }
 
   use {
