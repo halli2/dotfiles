@@ -2,7 +2,6 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -36,7 +35,9 @@ return require('packer').startup(function(use)
 
   -- Completion
   use 'onsails/lspkind-nvim'
-  use 'L3MON4D3/LuaSnip'
+  use {
+    'L3MON4D3/LuaSnip',
+  }
   use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lua'
