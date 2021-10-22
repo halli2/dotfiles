@@ -131,6 +131,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
   },
+  ["lsp_extensions.nvim"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
@@ -214,11 +218,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/registers.nvim"
   },
-  ["rust-tools.nvim"] = {
-    config = { 'require("config/rust")' },
-    loaded = true,
-    path = "/home/halli/.local/share/nvim/site/pack/packer/start/rust-tools.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/telescope.nvim"
@@ -247,10 +246,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require("config/treesitter")
-time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("config/lsp")
+time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
@@ -263,14 +262,10 @@ time([[Config for neoterm.nvim]], false)
 time([[Config for which-key.nvim]], true)
 require("config/which-key")
 time([[Config for which-key.nvim]], false)
--- Config for: nvim-dap-ui
-time([[Config for nvim-dap-ui]], true)
-require("config/dapui")
-time([[Config for nvim-dap-ui]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require("config/dap")
-time([[Config for nvim-dap]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("config/lualine")
+time([[Config for lualine.nvim]], false)
 -- Config for: go.nvim
 time([[Config for go.nvim]], true)
 require("config/go")
@@ -279,18 +274,18 @@ time([[Config for go.nvim]], false)
 time([[Config for kommentary]], true)
 require("kommentary.config").use_extended_mappings()
 time([[Config for kommentary]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require("config/lsp")
-time([[Config for nvim-lspconfig]], false)
--- Config for: rust-tools.nvim
-time([[Config for rust-tools.nvim]], true)
-require("config/rust")
-time([[Config for rust-tools.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("config/lualine")
-time([[Config for lualine.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require("config/dap")
+time([[Config for nvim-dap]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+require("config/dapui")
+time([[Config for nvim-dap-ui]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require("config/treesitter")
+time([[Config for nvim-treesitter]], false)
 if should_profile then save_profiles() end
 
 end)

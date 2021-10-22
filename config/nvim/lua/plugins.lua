@@ -30,6 +30,9 @@ return require('packer').startup(function(use)
   use {
     'nvim-lua/lsp-status.nvim',
   }
+  use {
+    'nvim-lua/lsp_extensions.nvim'
+  }
 
   -- Completion
   use 'onsails/lspkind-nvim'
@@ -160,9 +163,9 @@ return require('packer').startup(function(use)
   }
 
  -- Rust
- use {
+ --[[ use {
    'simrat39/rust-tools.nvim',
    config = 'require("config/rust")'
- }
+ } ]]
 
 end)
