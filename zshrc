@@ -24,6 +24,8 @@ source /usr/share/fzf/key-bindings.zsh
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' # Case insensitive, UNLESS usage of upper case
 zstyle ':completion:*' menu select
 
+# Rustup/cargo(?) tab completions
+fpath+=~/.zfunc
 
 autoload -Uz compinit
 compinit
