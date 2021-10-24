@@ -210,6 +210,26 @@ require'lspconfig'.rust_analyzer.setup{
   -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   capabilities = capabilities,
   flags = { debounce_text_changes = 125 },
+  settings = {
+    ["rust-analyzer"] = {
+      --[[ assist = {
+        importMergeBehavior = "last",
+        importPrefix = "by_self",
+      },
+      diagnostics = {
+        disabled = { "unresolved-import" }
+      },
+      cargo = {
+          loadOutDirsFromCheck = true
+      },
+      procMacro = {
+          enable = true
+      }, ]]
+      checkOnSave = {
+          command = "clippy"
+      },
+    }
+  }
 }
 -- InlayHints
 vim.cmd([[autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight =  "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]])
