@@ -26,6 +26,7 @@ opt('clipboard', 'unnamedplus') -- sync with system clipboard
 opt('list', true) -- show some invisible characters (tabs...
 opt('scrolloff', 4) -- Lines of context
 opt('wildmode', 'longest:full,full') -- Command-line completion mode
+opt('inccommand', 'split') -- Show what's changed when %s/''/''
 
 -- Use proper syntax highlighting in code blocks
 local fences = {

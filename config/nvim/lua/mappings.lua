@@ -15,11 +15,11 @@ map('n', '<localleader>mm', '<cmd>set hlsearch!<cr>')
 
 ---- Telescope
 map('n', '<localleader>T', '<cmd>lua require("telescope.command").load_command()<cr>')
-map('n', '<localleader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
-map('n', '<localleader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-map('n', '<localleader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
-map('n', '<localleader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
-map('n', '<localleader>f_', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find({sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>')
+map('n', '<localleader>ff', '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_ivy())<cr>')
+map('n', '<localleader>fg', '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_ivy())<cr>')
+map('n', '<localleader>fb', '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_ivy())<cr>')
+map('n', '<localleader>fh', '<cmd>lua require("telescope.builtin").help_tags(require("telescope.themes").get_ivy())<cr>')
+map('n', '<localleader>f_', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy(),{sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>')
 ---- Golang
 -- map('n', '<leader>t', '<cmd>GoTest<cr>', options)
 -- Sayonara
