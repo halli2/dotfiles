@@ -14,6 +14,7 @@ map('i', 'kj', '<Esc>')
 map('n', '<localleader>mm', '<cmd>set hlsearch!<cr>')
 
 ---- Telescope
+map('n', '<localleader>T', '<cmd>lua require("telescope.command").load_command()<cr>')
 map('n', '<localleader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
 map('n', '<localleader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
 map('n', '<localleader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
