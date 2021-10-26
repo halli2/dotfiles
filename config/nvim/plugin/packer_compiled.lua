@@ -198,6 +198,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/halli/.local/share/nvim/site/pack/packer/start/onedark.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -221,10 +225,6 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/halli/.local/share/nvim/site/pack/packer/start/telescope.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/halli/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
   },
   ["vim-easy-align"] = {
     loaded = true,

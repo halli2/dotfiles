@@ -1,3 +1,4 @@
+// Based on https://github.com/robertjk/dotfiles/blob/253b86442dae4d07d872e8b963fa33b5f8819594/.config/waybar/config
 // =============================================================================
 //
 // Waybar configuration
@@ -20,23 +21,23 @@
 
     "modules-left": [
         "sway/workspaces",
-        "sway/mode"
+        "sway/mode",
+        "network",
+        "custom/keyboard-layout",
     ],
     "modules-center": [
         "sway/window"
     ],
     "modules-right": [
-        "network",
+        "clock#time",
+        "clock#date",
         "mpd",
         "pulseaudio",
         "memory",
         "cpu",
         "temperature",
-        "custom/keyboard-layout",
         "battery",
         "tray",
-        "clock#date",
-        "clock#time"
     ],
 
 
@@ -119,7 +120,7 @@
 
     "sway/window": {
         "format": "{}",
-        "max-length": 120
+        "max-length": 120,
     },
 
     "sway/workspaces": {

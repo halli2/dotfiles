@@ -12,9 +12,6 @@
     ~/.p10k.zsh: p10k.zsh
     ~/.xinitrc: xinitrc
     # config folder
-    ~/.config/BetterDiscord:
-        path: config/BetterDiscord/
-        create: true
     ~/.config/f1viewer:
         path: config/f1viewer
         create: true
@@ -56,9 +53,6 @@
       create: true
     ~/scripts:
       path: scripts
-      create: true
-    ~/.local/share/applications/firefox.desktop:
-      path: desktop/firefox.desktop
       create: true
 
 

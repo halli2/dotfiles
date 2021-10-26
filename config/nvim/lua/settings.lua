@@ -49,12 +49,14 @@ g.markdown_fenced_languages = fences
 cmd('autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)') ]]
 cmd('autocmd Filetype go setlocal noexpandtab')
 
-
 -- Colorscheme
+-- g.onedark_style = 'warm'
 opt('termguicolors', true)
-g.tokyonight_style = 'storm'
+require('onedark').setup()
+--[[ g.tokyonight_style = 'storm'
 g.tokyonight_italic_functions = true
 g.tokyonight_sidebars = {'terminal', 'packer'}
-g.tokyonight_colors = {comment = '#a8a8a8'}
+g.tokyonight_colors = {comment = '#a8a8a8'} ]]
+
 -- vim.g.tokyonight_colors = {hint = 'orange', error = '#ff0000'}
-cmd'colorscheme tokyonight'
+-- cmd'colorscheme tokyonight'

@@ -128,7 +128,9 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
 
   -- ColorScheme
-  use 'folke/tokyonight.nvim'
+  -- use 'folke/tokyonight.nvim'
+  -- use 'soares/base16.nvim'
+  use 'navarasu/onedark.nvim'
   -- Statusline
   use {
     'hoob3rt/lualine.nvim',
