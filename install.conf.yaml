@@ -51,6 +51,9 @@
     ~/.config/rofi:
       path: config/rofi
       create: true
+    ~/.config/base16-shell:
+      path: config/base16-shell
+      create: true
     ~/scripts:
       path: scripts
       create: true
