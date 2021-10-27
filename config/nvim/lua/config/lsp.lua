@@ -200,10 +200,13 @@ require("lspconfig").sumneko_lua.setup({
 	},
 })
 
-require("null-ls").config({
+local null_ls = require("null-ls")
+null_ls.config({
 	sources = {
-		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.formatting.black,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.diagnostics.write_good,
+		null_ls.builtins.diagnostics.pylint,
 	},
 })
 require("lspconfig")["null-ls"].setup({
