@@ -252,8 +252,6 @@ for_window [class="jclient-LoginFrame"] floating enable
 focus_follows_mouse no
 for_window [title="^Picture-in-Picture$" app_id="firefox"] floating enable, sticky enable #Sticky keeps it on all workspaces (on current output)
 
-# Play/pause
-bindsym XF86Calculator exec playerctl -p spotify play-pause
 
 # Startup programs
 #exec firefox
@@ -262,6 +260,7 @@ workspace 2
 exec spotify --silent
 workspace 1
 exec steam -silent
+exec --startup-id mpd
 
 # Screenshot
 bindsym $mod+Shift+s exec grimshot copy area
@@ -279,6 +278,11 @@ exec easyeffects --gapplication-service
 
 
 # Multimedia keys // check if this works after reboot?
+# Play/pause
+bindsym XF86Calculator exec playerctl -p spotify play-pause
+bindsym $mod+n exec mpc toggle
+
+# Volume
 bindsym XF86AudioRaiseVolume exec volumectl raise
 bindsym XF86AudioLowerVolume exec volumectl lower
 # bindsym XF86AudioMute exec volumectl mute
@@ -287,3 +291,18 @@ bindsym XF86AudioMicMute exec volumectl mute --mic
 
 # todo: setup gammastep, ALSO; set up gammasetp's config
 exec gammastep-indicator
+
+# set $power_mode "power"
+# bindsym $mod+Shift+q      mode $power_mode
+# mode $power_mode {
+#     bindsym p         exec systemctl poweroff
+#     bindsym r         exec systemctl reboot 
+#     bindsym l         exec swaylock -i ~/Pictures/wallpaper-04.png , mode "default"
+#     bindsym q         exec --no-startup-id i3-msg exit, mode "default"
+#     bindsym h         exec systemctl hibernate 
+#     #bindsym s        exec sudo  /lib/systemd/systemd-sleep hybrid-sleep 
+#     bindsym s         exec pm-suspend
+
+#     bindsym Return    mode "default"
+#     bindsym Escape    mode "default"
+# }
