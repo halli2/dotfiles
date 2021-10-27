@@ -35,6 +35,7 @@
         "pulseaudio",
         "memory",
         "cpu",
+        "disk",
         "temperature",
         "battery",
         "tray",
@@ -84,6 +85,12 @@
           "warning": 70,
           "critical": 90
         }
+    },
+
+    "disk": {
+        "interval": 5,
+        "format": "Disk {percentage_used:2}%",
+        "path": "/",
     },
 
     "custom/keyboard-layout": {

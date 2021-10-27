@@ -58,6 +58,7 @@
 #battery,
 #clock,
 #cpu,
+#disk,
 #custom-keyboard-layout,
 #memory,
 #mode,
@@ -104,6 +105,10 @@
 }
 
 #cpu {
+  /* No styles */
+}
+
+#disk {
   /* No styles */
 }
 
