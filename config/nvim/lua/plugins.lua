@@ -150,8 +150,11 @@ return require("packer").startup(function(use)
 	use("tversteeg/registers.nvim")
 
 	-- Sneak
-	use({
+	--[[ use({
 		"justinmk/vim-sneak",
+	}) ]]
+	use({
+		"ggandor/lightspeed.nvim",
 	})
 
 	-- Markdown

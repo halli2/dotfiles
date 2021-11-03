@@ -43,6 +43,7 @@ export PATH=$PATH:$(gem environment gempath)/bin
 export PATH=$PATH:~/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:~/scripts
 export PATH=$PATH:~/ichibot
+export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/.local/bin
 export VULKAN_SDK=~/vulkan/1.2.189.0/x86_64
 export PATH=$VULKAN_SDK/bin:$PATH

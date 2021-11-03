@@ -1,3 +1,6 @@
+require("nvim-dap-virtual-text").setup() -- Virt text plugin settings
+
+-- Different dap settings
 local dap = require("dap")
 dap.adapters.python = {
 	type = "executable",

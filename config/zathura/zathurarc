@@ -1,44 +1,80 @@
 
-# zathurarc-light
-set notification-error-bg       "#eee8d5" # base2  # seem not work
-set notification-error-fg       "#dc322f" # red
-set notification-warning-bg     "#eee8d5" # base2
-set notification-warning-fg     "#dc322f" # red
-set notification-bg             "#eee8d5" # base2
-set notification-fg             "#268bd2" # blue
+# # zathurarc-light
+# set notification-error-bg       "#eee8d5" # base2  # seem not work
+# set notification-error-fg       "#dc322f" # red
+# set notification-warning-bg     "#eee8d5" # base2
+# set notification-warning-fg     "#dc322f" # red
+# set notification-bg             "#eee8d5" # base2
+# set notification-fg             "#268bd2" # blue
 
-set completion-bg               "#fdf6e3" # base3
-set completion-fg               "#657b83" # base00
-set completion-group-bg         "#eee8d5" # base2
-set completion-group-fg         "#586e75" # base01
-set completion-highlight-bg     "#93a1a1" # base1
-set completion-highlight-fg     "#073642" # base02
+# set completion-bg               "#fdf6e3" # base3
+# set completion-fg               "#657b83" # base00
+# set completion-group-bg         "#eee8d5" # base2
+# set completion-group-fg         "#586e75" # base01
+# set completion-highlight-bg     "#93a1a1" # base1
+# set completion-highlight-fg     "#073642" # base02
 
-# Define the color in index mode
-set index-bg                   "#fdf6e3" # base3
-set index-fg                   "#657b83" # base00
-set index-active-bg             "#eee8d5" # base2
-set index-active-fg             "#586e75" # base01
+# # Define the color in index mode
+# set index-bg                   "#fdf6e3" # base3
+# set index-fg                   "#657b83" # base00
+# set index-active-bg             "#eee8d5" # base2
+# set index-active-fg             "#586e75" # base01
 
-set inputbar-bg                 "#93a1a1" # base1
-set inputbar-fg                 "#073642" # base02
+# set inputbar-bg                 "#93a1a1" # base1
+# set inputbar-fg                 "#073642" # base02
 
-set statusbar-bg                "#fdf6e3" # base3
-set statusbar-fg                "#657b83" # base00
+# set statusbar-bg                "#fdf6e3" # base3
+# set statusbar-fg                "#657b83" # base00
 
-set highlight-color             "#839496" # base0  # hightlight match when search keyword(vim's /)
-set highlight-active-color      "#cb4616" # orange
+# set highlight-color             "#839496" # base0  # hightlight match when search keyword(vim's /)
+# set highlight-active-color      "#cb4616" # orange
 
-set default-bg                  "#fdf6e3" # base3
-set default-fg                  "#657b83" # base00
-set render-loading              true
+# set default-bg                  "#fdf6e3" # base3
+# set default-fg                  "#657b83" # base00
+# set render-loading              true
 # set render-loading-fg           "#fdf6e3" # base3
 # set render-loading-bg           "#fdf6e3" # base3
 
 # Recolor book content's color
 # verbose
 # verbose
-set recolor-lightcolor          "#fdf6e3" # base3
-set recolor-darkcolor           "#657b83" # base00
-set recolor                     "true"
+## Base16 OneDark
+# Author: Lalit Magant (http://github.com/tilal6991)
+
+set default-bg                  "#282c34"
+set default-fg                  "#353b45"
+
+set statusbar-fg                "#565c64"
+set statusbar-bg                "#3e4451"
+
+set inputbar-bg                 "#282c34"
+set inputbar-fg                 "#c8ccd4"
+
+set notification-bg             "#282c34"
+set notification-fg             "#c8ccd4"
+
+set notification-error-bg       "#282c34"
+set notification-error-fg       "#e06c75"
+
+set notification-warning-bg     "#282c34"
+set notification-warning-fg     "#e06c75"
+
+set highlight-color             "#e5c07b"
+set highlight-active-color      "#61afef"
+
+set completion-bg               "#353b45"
+set completion-fg               "#61afef"
+
+set completion-highlight-fg     "#c8ccd4"
+set completion-highlight-bg     "#61afef"
+
+set recolor-lightcolor          "#282c34"
+set recolor-darkcolor           "#b6bdca"
+
+set recolor                     "false"
+set recolor-keephue             "true"
+
+# set recolor-lightcolor          "#fdf6e3" # base3
+# set recolor-darkcolor           "#657b83" # base00
+# set recolor                     "true"
 # set recolor-keephue             true      # keep original color

@@ -31,7 +31,11 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# Day
+output * bg /home/halli/Pictures/wallpaper.jpg fill
+# Night
+# output * bg /home/halli/Pictures/wallpaper_night.jpg fill
 
 # Example configuration:
 #
@@ -242,7 +246,7 @@ input * {
   }
 
 # Gaps?
-#gaps inner 10
+gaps inner 10
 default_border pixel 3
 
 #flaoting windows
@@ -289,7 +293,7 @@ bindsym XF86AudioLowerVolume exec volumectl lower
 bindsym XF86AudioMicMute exec volumectl mute --mic
 
 
-# todo: setup gammastep, ALSO; set up gammasetp's config
+# TODO: setup gammastep, ALSO; set up gammasetp's config
 exec gammastep-indicator
 
 # set $power_mode "power"

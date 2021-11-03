@@ -31,8 +31,8 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "<leader>e", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 	buf_set_keymap("n", "<leader>re", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-	buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
+	buf_set_keymap("n", "<localleader>n", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
+	buf_set_keymap("n", "<localleader>p", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 	buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	buf_set_keymap("n", "<leader>T", '<cmd>lua require"lsp_extensions".inlay_hints()<CR>', opts)
@@ -236,25 +236,35 @@ require("lspconfig").rust_analyzer.setup({
 	settings = {
 		["rust-analyzer"] = {
 			--[[ assist = {
-        importMergeBehavior = "last",
-        importPrefix = "by_self",
-      },
-      diagnostics = {
-        disabled = { "unresolved-import" }
-      },
-      cargo = {
-          loadOutDirsFromCheck = true
-      },
-      procMacro = {
-          enable = true
-      }, ]]
+				importMergeBehavior = "last",
+				importPrefix = "by_self",
+			}, ]]
+			--[[ diagnostics = {
+				disabled = { "unresolved-import" },
+			}, ]]
+			cargo = {
+				loadOutDirsFromCheck = true,
+				allFeatures = true,
+			},
+			procMacro = {
+				enable = true,
+			},
 			checkOnSave = {
 				command = "clippy",
 			},
 		},
 	},
 })
--- InlayHints
+-- InlayHints for rust
 vim.cmd(
 	[[autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight =  "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]]
 )
+
+-- Hide virtual text!
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = false,
+	underline = true,
+	signs = true,
+})
+vim.cmd([[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]])
+vim.cmd([[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]])
