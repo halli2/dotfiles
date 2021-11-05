@@ -1,4 +1,6 @@
 local nvim_lsp = require("lspconfig")
+--[[ local utils = require("utils")
+local global = utils.global ]]
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer

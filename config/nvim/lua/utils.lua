@@ -35,4 +35,11 @@ local function map(modes, lhs, rhs, opts)
 	end
 end
 
-return { opt = opt, autocmd = autocmd, map = map }
+local os_name = vim.loop.os_uname().sysname
+local global = {
+	is_mac = {os_name == "Darwin"},
+	is_linux = {os_name == "Linux"},
+	is_windows = {os_name == "Windows" or os_name == "Windows_NT"},
+}
+
+return { opt = opt, autocmd = autocmd, map = map, global = global}

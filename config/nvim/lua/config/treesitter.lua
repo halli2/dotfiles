@@ -23,7 +23,7 @@ parser_configs.markdown = {
 require("nvim-treesitter.configs").setup({
 	ensure_installed = "maintained",
 	highlight = { enable = true, use_languagetree = true },
-	indent = { enable = false }, -- EXPERIMENTAL???
+	indent = { enable = true }, -- EXPERIMENTAL???
 	incremental_selection = {
 		enable = true,
 		keymaps = {

@@ -14,7 +14,7 @@ opt("relativenumber", true, window)
 opt("tabstop", 4, buffer)
 opt("softtabstop", 0, buffer)
 opt("expandtab", true, buffer)
-opt("shiftwidth", 2, buffer)
+opt("shiftwidth", 4, buffer)
 opt("ignorecase", true)
 opt("smartcase", true)
 opt("mouse", "nivh")
@@ -45,18 +45,9 @@ local fences = {
 g.markdown_fenced_languages = fences
 
 -- Golang
---[[ cmd('autocmd BufWritePre *.go :silent! lua require("go.format").gofmt()')
-cmd('autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)') ]]
 cmd("autocmd Filetype go setlocal noexpandtab")
 
 -- Colorscheme
 -- g.onedark_style = 'warm'
 opt("termguicolors", true)
 require("onedark").setup()
---[[ g.tokyonight_style = 'storm'
-g.tokyonight_italic_functions = true
-g.tokyonight_sidebars = {'terminal', 'packer'}
-g.tokyonight_colors = {comment = '#a8a8a8'} ]]
-
--- vim.g.tokyonight_colors = {hint = 'orange', error = '#ff0000'}
--- cmd'colorscheme tokyonight'

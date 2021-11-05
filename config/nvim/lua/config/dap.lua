@@ -1,4 +1,4 @@
-require("nvim-dap-virtual-text").setup() -- Virt text plugin settings
+-- require("nvim-dap-virtual-text").setup() -- Virt text plugin settings
 
 -- Different dap settings
 local dap = require("dap")

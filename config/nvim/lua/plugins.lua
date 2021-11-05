@@ -10,169 +10,159 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Packages
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
+return require("packer").startup({
+	function(use)
+		use("wbthomason/packer.nvim")
 
-	-- File explorer
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = function()
-			require("nvim-tree").setup({})
-		end,
-	})
+		-- Optimisation
+		use({
+			"lewis6991/impatient.nvim",
+			-- config = require("impatient")
+			config = require("impatient").enable_profile(),
+		})
+		use({
+			"nathom/filetype.nvim",
+			config = "require('config/optimization')",
+		})
+		-- use("tweekmonster/startuptime.vim")
 
-	-- LSP
-	use({
-		"neovim/nvim-lspconfig",
-		config = 'require("config/lsp")',
-	})
-	use({
-		"nvim-lua/lsp-status.nvim",
-	})
-	use({
-		"nvim-lua/lsp_extensions.nvim",
-	})
-	use("jose-elias-alvarez/null-ls.nvim")
+		-- File explorer
+		use({
+			"kyazdani42/nvim-tree.lua",
+			requires = { "kyazdani42/nvim-web-devicons", opt = true },
+			config = function()
+				require("nvim-tree").setup({})
+			end,
+		})
 
-	-- Completion
-	use("onsails/lspkind-nvim")
-	use({
-		"L3MON4D3/LuaSnip",
-	})
-	use("saadparwaiz1/cmp_luasnip")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lua")
-	use("ray-x/cmp-treesitter")
-	use("hrsh7th/cmp-calc")
-	use("hrsh7th/cmp-emoji")
-	use("f3fora/cmp-spell")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/nvim-cmp")
-	use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+		-- LSP
+		use({
+			"neovim/nvim-lspconfig",
+			config = 'require("config/lsp")',
+		})
+		use({
+			"nvim-lua/lsp-status.nvim",
+		})
+		use({
+			"nvim-lua/lsp_extensions.nvim",
+		})
+		use("jose-elias-alvarez/null-ls.nvim")
 
-	-- Lua dev
-	use("folke/lua-dev.nvim")
+		-- Completion
+		use("onsails/lspkind-nvim")
+		use({
+			"L3MON4D3/LuaSnip",
+		})
+		use("saadparwaiz1/cmp_luasnip")
+		use("hrsh7th/cmp-path")
+		use("hrsh7th/cmp-nvim-lua")
+		use("ray-x/cmp-treesitter")
+		use("hrsh7th/cmp-calc")
+		use("hrsh7th/cmp-emoji")
+		use("f3fora/cmp-spell")
+		use("hrsh7th/cmp-nvim-lsp")
+		use("hrsh7th/cmp-buffer")
+		use("hrsh7th/nvim-cmp")
+		use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
-	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		requires = {
-			"nvim-treesitter/nvim-treesitter-refactor",
-			"nvim-treesitter/playground",
-		},
+		-- Lua dev
+		use("folke/lua-dev.nvim")
 
-		run = {
-			":TSUpdate",
-			":TSInstall query",
-		},
-		config = 'require("config/treesitter")',
-	})
+		-- Treesitter
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			requires = {
+				"nvim-treesitter/nvim-treesitter-refactor",
+				"nvim-treesitter/playground",
+			},
 
-	-- DAP
-	use({
-		"mfussenegger/nvim-dap",
-		config = 'require("config/dap")',
-	})
+			run = {
+				":TSUpdate",
+			},
+			config = 'require("config/treesitter")',
+		})
 
-	use({
-		"rcarriga/nvim-dap-ui",
-		config = 'require("config/dapui")',
-	})
-	use("theHamsta/nvim-dap-virtual-text")
+		-- DAP
+		use({
+			"mfussenegger/nvim-dap",
+			config = 'require("config/dap")',
+		})
 
-	-- Go
-	use({
-		"ray-x/go.nvim",
-		config = 'require("config/go")',
-	})
+		use({
+			"rcarriga/nvim-dap-ui",
+			config = 'require("config/dapui")',
+		})
+		-- use("theHamsta/nvim-dap-virtual-text")
 
-	-- Telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = {
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
-		},
-	})
+		-- Go
+		use({
+			"ray-x/go.nvim",
+			config = 'require("config/go")',
+		})
 
-	-- Buffer deletion
-	use("mhinz/vim-sayonara")
+		-- Telescope
+		use({
+			"nvim-telescope/telescope.nvim",
+			requires = {
+				"nvim-lua/popup.nvim",
+				"nvim-lua/plenary.nvim",
+			},
+		})
 
-	-- Comments
-	use({
-		"b3nj5m1n/kommentary",
-		config = 'require("kommentary.config").use_extended_mappings()',
-	})
+		-- Buffer deletion
+		use("mhinz/vim-sayonara")
 
-	-- Indentation tracking
-	use("lukas-reineke/indent-blankline.nvim")
+		-- Comments
+		use({
+			"b3nj5m1n/kommentary",
+			config = 'require("kommentary.config").use_extended_mappings()',
+		})
 
-	-- Git
-	-- use 'tpope/vim-fugitive'
-	-- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-	--[[ use {
-    'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
-    config = "require('config/gitsigns')"
-  } ]]
+		-- Indentation tracking
+		use("lukas-reineke/indent-blankline.nvim")
 
-	-- Neoterm
-	use({
-		"itmecho/neoterm.nvim",
-		config = 'require("config/neoterm")',
-	})
+		-- Neoterm
+		use({
+			"itmecho/neoterm.nvim",
+			config = 'require("config/neoterm")',
+		})
 
-	-- Pretty symbol
-	use("kyazdani42/nvim-web-devicons")
+		-- Pretty symbol
+		use("kyazdani42/nvim-web-devicons")
 
-	-- ColorScheme
-	-- use 'folke/tokyonight.nvim'
-	-- use 'soares/base16.nvim'
-	use("navarasu/onedark.nvim")
-	-- Statusline
-	use({
-		"hoob3rt/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = 'require("config/lualine")',
-	})
+		-- ColorScheme
+		use("navarasu/onedark.nvim")
 
-	-- Which key?
-	use({
-		"folke/which-key.nvim",
-		config = 'require("config/which-key")',
-	})
+		-- Statusline
+		use({
+			"nvim-lualine/lualine.nvim",
+			requires = { "kyazdani42/nvim-web-devicons", opt = true },
+			config = 'require("config/lualine")',
+		})
 
-	-- Registers, (paste)
-	use("tversteeg/registers.nvim")
+		-- Which key?
+		use({
+			"folke/which-key.nvim",
+			config = 'require("config/which-key")',
+		})
 
-	-- Sneak
-	--[[ use({
-		"justinmk/vim-sneak",
-	}) ]]
-	use({
-		"ggandor/lightspeed.nvim",
-	})
+		-- Registers, (paste)
+		use("tversteeg/registers.nvim")
 
-	-- Markdown
-	--[[ use {
-    'plasticboy/vim-markdown',
-    requires = {'godlygeek/tabular'}
-  } ]]
-	use({
-		"junegunn/vim-easy-align",
-	})
+		-- Sneak like
+		use({
+			"ggandor/lightspeed.nvim",
+		})
 
-	use({
-		"windwp/nvim-ts-autotag",
-	})
+		use({
+			"junegunn/vim-easy-align",
+		})
 
-	-- Rust
-	--[[ use {
-   'simrat39/rust-tools.nvim',
-   config = 'require("config/rust")'
- } ]]
-end)
+		use({
+			"windwp/nvim-ts-autotag",
+		})
+	end,
+	config = {
+		compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
+	},
+})
