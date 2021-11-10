@@ -1,6 +1,13 @@
 -- Needed for custom parsers
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
+vim.cmd([[au BufRead,BufNewFile *.wgsl	set filetype=wgsl]])
+parser_configs.wgsl = {
+	install_info = {
+		url = "https://github.com/szebniok/tree-sitter-wgsl",
+		files = { "src/parser.c" },
+	},
+}
 -- Norg Support (has to be before treesitter.setup
 parser_configs.norg = {
 	install_info = {
@@ -21,7 +28,7 @@ parser_configs.markdown = {
 
 -- Treesitter setup
 require("nvim-treesitter.configs").setup({
-	ensure_installed = "maintained",
+	ensure_installed = "all",
 	highlight = { enable = true, use_languagetree = true },
 	indent = { enable = true }, -- EXPERIMENTAL???
 	incremental_selection = {

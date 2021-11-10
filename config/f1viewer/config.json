@@ -1,41 +1,134 @@
 {
 	"live_retry_timeout": 60,
-	"preferred_language": "en",
+	"preferred_language": "eng",
 	"check_updates": true,
 	"save_logs": true,
 	"log_location": "",
 	"custom_playback_options": null,
 	"multi_commands": [
 		{
-		"title": "Race Control",
+			"title": "Race Control",
 			"targets": [
-		{
-			"match_title": "World Feed",
-			"command": ["mpv", "--alang=en", "--volume=75", "--quiet", "--no-border", "--title=$title", "--autofit-larger=67%", "-geometry=0:0", "$url",  "--cache-pause-initial=yes", "--cache-pause-wait=35"]
-		},
-		{
-			"match_title": "Leclerc",
-			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=100%:0", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
-		},
-		{
-			"match_title": "Data",
-			 "command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=0:100%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
-		},
-		{
-			"match_title": "Verstappen",
-			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=100%:100%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
-		},
-		{
-			"match_title": "Gasly",
-			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=100%:50%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
-		},
-		{
-			"match_title": "Tracker",
-			"command": ["mpv", "--alang=en", "--start=0", "--volume=0", "--quiet", "--no-border", "--title=$title", "--autofit-larger=34%", "-geometry=50%:100%", "$url", "--vid=6",  "--cache-pause-initial=yes", "--cache-pause-wait=35", "--aid=no"]
+				{
+					"match_title": "World Feed",
+					"command": [
+						"mpv",
+						"--alang=en",
+						"--volume=75",
+						"--quiet",
+						"--no-border",
+						"--title=$title",
+						"--autofit-larger=67%",
+						"-geometry=0:0",
+						"$url",
+						"--cache-pause-initial=yes",
+						"--cache-pause-wait=35"
+					],
+					"proxy": false
+				},
+				{
+					"match_title": "Leclerc",
+					"command": [
+						"mpv",
+						"--alang=en",
+						"--start=0",
+						"--volume=0",
+						"--quiet",
+						"--no-border",
+						"--title=$title",
+						"--autofit-larger=34%",
+						"-geometry=100%:0",
+						"$url",
+						"--vid=6",
+						"--cache-pause-initial=yes",
+						"--cache-pause-wait=35",
+						"--aid=no"
+					],
+					"proxy": false
+				},
+				{
+					"match_title": "Data",
+					"command": [
+						"mpv",
+						"--alang=en",
+						"--start=0",
+						"--volume=0",
+						"--quiet",
+						"--no-border",
+						"--title=$title",
+						"--autofit-larger=34%",
+						"-geometry=0:100%",
+						"$url",
+						"--vid=6",
+						"--cache-pause-initial=yes",
+						"--cache-pause-wait=35",
+						"--aid=no"
+					],
+					"proxy": false
+				},
+				{
+					"match_title": "Verstappen",
+					"command": [
+						"mpv",
+						"--alang=en",
+						"--start=0",
+						"--volume=0",
+						"--quiet",
+						"--no-border",
+						"--title=$title",
+						"--autofit-larger=34%",
+						"-geometry=100%:100%",
+						"$url",
+						"--vid=6",
+						"--cache-pause-initial=yes",
+						"--cache-pause-wait=35",
+						"--aid=no"
+					],
+					"proxy": false
+				},
+				{
+					"match_title": "Gasly",
+					"command": [
+						"mpv",
+						"--alang=en",
+						"--start=0",
+						"--volume=0",
+						"--quiet",
+						"--no-border",
+						"--title=$title",
+						"--autofit-larger=34%",
+						"-geometry=100%:50%",
+						"$url",
+						"--vid=6",
+						"--cache-pause-initial=yes",
+						"--cache-pause-wait=35",
+						"--aid=no"
+					],
+					"proxy": false
+				},
+				{
+					"match_title": "Tracker",
+					"command": [
+						"mpv",
+						"--alang=en",
+						"--start=0",
+						"--volume=0",
+						"--quiet",
+						"--no-border",
+						"--title=$title",
+						"--autofit-larger=34%",
+						"-geometry=50%:100%",
+						"$url",
+						"--vid=6",
+						"--cache-pause-initial=yes",
+						"--cache-pause-wait=35",
+						"--aid=no"
+					],
+					"proxy": false
+				}
+			]
 		}
-		]
-		}
-		],
+	],
 	"horizontal_layout": false,
 	"theme": {
 		"background_color": "",
@@ -57,5 +150,6 @@
 	"tree_ratio": 1,
 	"output_ratio": 1,
 	"terminal_wrap": true,
-	"disable_team_colors": false
+	"disable_team_colors": false,
+	"f1tv_email": "halvor.kvamme@gmail.com"
 }

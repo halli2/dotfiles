@@ -246,7 +246,7 @@ input * {
   }
 
 # Gaps?
-gaps inner 10
+# gaps inner 10
 default_border pixel 3
 
 #flaoting windows
