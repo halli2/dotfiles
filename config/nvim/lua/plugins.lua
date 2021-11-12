@@ -15,7 +15,7 @@ return require("packer").startup({
 		use("wbthomason/packer.nvim")
 
 		-- Optimisation
-		use({
+		--[[ use({
 			"lewis6991/impatient.nvim",
 			-- config = require("impatient")
 			config = require("impatient").enable_profile(),
@@ -23,7 +23,7 @@ return require("packer").startup({
 		use({
 			"nathom/filetype.nvim",
 			config = "require('config/optimization')",
-		})
+		}) ]]
 		-- use("tweekmonster/startuptime.vim")
 
 		-- File explorer
@@ -38,10 +38,7 @@ return require("packer").startup({
 		-- LSP
 		use({
 			"neovim/nvim-lspconfig",
-			config = 'require("config/lsp")',
-		})
-		use({
-			"nvim-lua/lsp-status.nvim",
+			-- config = 'require("config/lsp")',
 		})
 		use({
 			"nvim-lua/lsp_extensions.nvim",
@@ -79,25 +76,25 @@ return require("packer").startup({
 			run = {
 				":TSUpdate",
 			},
-			config = 'require("config/treesitter")',
+			-- config = 'require("config/treesitter")',
 		})
 
 		-- DAP
 		use({
 			"mfussenegger/nvim-dap",
-			config = 'require("config/dap")',
+			-- config = 'require("config/dap")',
 		})
 
 		use({
 			"rcarriga/nvim-dap-ui",
-			config = 'require("config/dapui")',
+			-- config = 'require("config/dapui")',
 		})
 		-- use("theHamsta/nvim-dap-virtual-text")
 
 		-- Go
 		use({
 			"ray-x/go.nvim",
-			config = 'require("config/go")',
+			-- config = 'require("config/go")',
 		})
 
 		-- Telescope
@@ -124,7 +121,7 @@ return require("packer").startup({
 		-- Neoterm
 		use({
 			"itmecho/neoterm.nvim",
-			config = 'require("config/neoterm")',
+			-- config = 'require("config/neoterm")',
 		})
 
 		-- Pretty symbol
@@ -137,13 +134,13 @@ return require("packer").startup({
 		use({
 			"nvim-lualine/lualine.nvim",
 			requires = { "kyazdani42/nvim-web-devicons", opt = true },
-			config = 'require("config/lualine")',
+			-- config = 'require("config/lualine")',
 		})
 
 		-- Which key?
 		use({
 			"folke/which-key.nvim",
-			config = 'require("config/which-key")',
+			-- config = 'require("config/which-key")',
 		})
 
 		-- Registers, (paste)

@@ -41,6 +41,10 @@ local on_attach = function(client, bufnr)
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 	end
+	-- Rust inlay hints
+	vim.cmd(
+		[[autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight =  "NonText", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]]
+	)
 end
 
 -- tabnine for cmp
@@ -258,15 +262,15 @@ require("lspconfig").rust_analyzer.setup({
 	},
 })
 -- InlayHints for rust
-vim.cmd(
-	[[autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight =  "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]]
-)
+-- vim.cmd(
+-- [[autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight =  "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]]
+-- )
 
 -- Hide virtual text!
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--[[ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	virtual_text = true,
 	underline = true,
 	signs = true,
-})
-vim.cmd([[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]])
-vim.cmd([[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]])
+}) ]]
+-- vim.cmd([[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]])
+-- vim.cmd([[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]])
