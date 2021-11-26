@@ -10,7 +10,7 @@ g.maplocalleader = ","
 
 -- General stuff
 map("i", "jk", "<Esc>")
-map("i", "kj", "<Esc>")
+-- map("i", "kj", "<Esc>")
 map("n", "<localleader>mm", "<cmd>set hlsearch!<cr>")
 
 ---- Telescope
