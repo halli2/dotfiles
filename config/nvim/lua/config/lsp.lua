@@ -211,7 +211,7 @@ null_ls.config({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.black,
-		null_ls.builtins.diagnostics.write_good,
+		-- null_ls.builtins.diagnostics.write_good,
 		null_ls.builtins.diagnostics.pylint,
 	},
 })
@@ -226,7 +226,7 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
 		flags = {
-			debounce_text_changes = 125,
+			-- debounce_text_changes = 125,
 		},
 		-- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		capabilities = capabilities,
@@ -238,7 +238,7 @@ require("lspconfig").rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	-- capabilities = capabilities,
-	flags = { debounce_text_changes = 125 },
+	-- flags = { debounce_text_changes = 125 },
 	settings = {
 		["rust-analyzer"] = {
 			--[[ assist = {
