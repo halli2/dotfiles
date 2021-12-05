@@ -45,7 +45,7 @@ export PATH=$PATH:~/scripts
 export PATH=$PATH:~/ichibot
 export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/.local/bin
-export VULKAN_SDK=~/vulkan/1.2.189.0/x86_64
+export VULKAN_SDK=~/vulkan/1.2.198.1/x86_64
 export PATH=$VULKAN_SDK/bin:$PATH
 export LD_LIBRARY_PATH=$VULKAN_SDK/lib:$LD_LIBRARY_PATH
 export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
@@ -113,3 +113,5 @@ search_man() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+alias luamake=/home/halli/ManuallyInstalled/lua-language-server/3rd/luamake/luamake

@@ -37,7 +37,7 @@
         "cpu",
         "disk",
         "temperature",
-        "battery",
+        // "battery",
         "tray",
     ],
 

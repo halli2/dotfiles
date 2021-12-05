@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Update fedora packages"
 sudo dnf update

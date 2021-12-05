@@ -287,7 +287,7 @@ workspace 1
 
 # Screenshot
 bindsym $mod+Shift+s exec grimshot copy area
-bindsym $mod+Shift+x exec grimsave
+bindsym $mod+Shift+x exec grimshot save area
 # passmenu
 bindsym $mod+Shift+p exec passmenu
 #bindsym $mod+Shift+p exec pass clip
