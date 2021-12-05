@@ -18,8 +18,8 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# set $menu rofi -combi-modi window#drun#ssh -show combi -modi combi -show-icons
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu rofi -combi-modi window#drun#ssh -show combi -modi combi -show-icons
 
 # Notifications manager
 # exec mako --default-timeout 3000
@@ -35,7 +35,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Day
-output * bg /home/halli/Pictures/wallpaper.jpg fill
+output * bg /home/halli/Pictures/default.png fill
 # Night
 # output * bg /home/halli/Pictures/wallpaper_night.jpg fill
 
@@ -260,15 +260,30 @@ for_window [class="jclient-LoginFrame"] floating enable
 focus_follows_mouse no
 for_window [title="^Picture-in-Picture$" app_id="firefox"] floating enable, sticky enable #Sticky keeps it on all workspaces (on current output)
 
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
+for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] floating enable
+for_window [window_role="Open Files"] floating enable sticky
+for_window [window_role="File Operation Progress"] floating enable sticky
+for_window [window_role="Save As"] floating enable
+
+for_window [class="qBittorrent" window_role="pop-up"] floating enable
+for_window [class="mtp-ng-qt" window_role="Open"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [app_id="qemu"] floating enable
 
 # Startup programs
 #exec firefox
-exec discord --start-minimized
-workspace 2
-exec spotify --silent
+# exec discord --start-minimized
+# workspace 2
+# exec spotify --silent
 workspace 1
-exec steam -silent
-exec --startup-id mpd
+# exec steam -silent
+# exec --startup-id mpd
 
 # Screenshot
 bindsym $mod+Shift+s exec grimshot copy area
@@ -282,7 +297,7 @@ bindsym $mod+Shift+p exec passmenu
 exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Start pulseeffects in the background for equalizing
 # exec pulseeffects --gapplication-service
-# exec easyeffects --gapplication-service
+exec easyeffects --gapplication-service
 
 
 # Multimedia keys // check if this works after reboot?

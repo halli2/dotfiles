@@ -210,7 +210,7 @@ local null_ls = require("null-ls")
 null_ls.config({
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.black,
+		-- null_ls.builtins.formatting.black,
 		-- null_ls.builtins.diagnostics.write_good,
 		null_ls.builtins.diagnostics.pylint,
 	},
@@ -221,7 +221,7 @@ require("lspconfig")["null-ls"].setup({
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "gopls", "clangd", "html", "cmake" }
+local servers = { "pylsp", "gopls", "clangd", "html", "cmake", "tsserver" } -- "pyright"
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,

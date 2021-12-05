@@ -5,3 +5,4 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 source /home/halli/.config/broot/launcher/bash/br
+. "$HOME/.cargo/env"
