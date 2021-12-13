@@ -228,6 +228,8 @@ require("lspconfig").rust_analyzer.setup({
 		},
 	},
 })
+
+vim.cmd([[autocmd BufEnter *.crs set filetype=rust]])
 -- InlayHints for rust
 -- vim.cmd(
 -- [[autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight =  "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]]

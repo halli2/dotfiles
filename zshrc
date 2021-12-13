@@ -89,7 +89,7 @@ setopt interactivecomments
 # Defaults
 export VISUAL=nvim
 export EDITOR=nvim
-export BROWSER=firefox-nightly
+# export BROWSER=firefox-nightly
 export TERMINAL='kitty'
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_WEBRENDER=1

@@ -36,7 +36,8 @@ map(
 	"<localleader>f_",
 	'<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy(),{sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>'
 )
-map("n", "<localleader>fe", '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<cr>')
+map("n", "<localleader>fe", "<cmd>Telescope diagnostics<cr>")
+-- map("n", "<localleader>fe", '<cmd>lua require("telescope.builtin").Telescope diagnostics()<cr>')
 ---- Golang
 -- map('n', '<leader>t', '<cmd>GoTest<cr>', options)
 -- Sayonara
