@@ -41,6 +41,9 @@ return require("packer").startup({
 			-- config = 'require("config/lsp")',
 		})
 		use({
+			"simrat39/rust-tools.nvim",
+		})
+		use({
 			"nvim-lua/lsp_extensions.nvim",
 		})
 		use("jose-elias-alvarez/null-ls.nvim")
@@ -103,6 +106,7 @@ return require("packer").startup({
 			requires = {
 				"nvim-lua/popup.nvim",
 				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope-ui-select.nvim",
 			},
 		})
 

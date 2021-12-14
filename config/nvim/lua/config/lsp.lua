@@ -41,10 +41,6 @@ local on_attach = function(client, bufnr)
 	if client.resolved_capabilities.document_formatting then
 		vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 	end
-	-- Rust inlay hints
-	vim.cmd(
-		[[autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = ' » ', highlight =  "NonText", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]]
-	)
 end
 
 -- tabnine for cmp
@@ -125,7 +121,7 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "path", keyword_length = 5 },
 		-- { name = 'nvim_lua' },
-		-- { name = 'treesitter' },
+		-- { name = "treesitter" },
 		-- { name = 'calc' },
 		-- { name = 'emoji' },
 		-- { name = 'spell' },
@@ -173,17 +169,14 @@ table.insert(runtime_path, "lua/?/init.lua")
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local null_ls = require("null-ls")
-null_ls.config({
+require("null-ls").setup({
+	on_attach = on_attach,
 	sources = {
-		null_ls.builtins.formatting.stylua,
+		require("null-ls").builtins.formatting.stylua,
 		-- null_ls.builtins.formatting.black,
 		-- null_ls.builtins.diagnostics.write_good,
 		-- null_ls.builtins.diagnostics.pylint,
 	},
-})
-require("lspconfig")["null-ls"].setup({
-	on_attach = on_attach,
 })
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -195,51 +188,33 @@ for _, lsp in ipairs(servers) do
 		flags = {
 			-- debounce_text_changes = 125,
 		},
-		-- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		capabilities = capabilities,
 	})
 end
 
--- RUST
-require("lspconfig").rust_analyzer.setup({
-	on_attach = on_attach,
-	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-	-- capabilities = capabilities,
-	-- flags = { debounce_text_changes = 125 },
-	settings = {
-		["rust-analyzer"] = {
-			--[[ assist = {
-				importMergeBehavior = "last",
-				importPrefix = "by_self",
-			}, ]]
-			--[[ diagnostics = {
-				disabled = { "unresolved-import" },
-			}, ]]
-			cargo = {
-				loadOutDirsFromCheck = true,
-				allFeatures = true,
-			},
-			procMacro = {
-				enable = true,
-			},
-			checkOnSave = {
-				command = "clippy",
+-- vim.cmd([[autocmd BufEnter *.crs set filetype=rust]])
+
+require("rust-tools").setup({
+	server = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+		settings = {
+			["rust-analyzer"] = {
+				--[[ cargo = {
+					loadOutDirsFromCheck = true,
+					allFeatures = true,
+				}, ]]
+				procMacro = {
+					enable = true,
+				},
+				checkOnSave = {
+					command = "clippy",
+				},
+				--[[ rustcSource = "discover",
+				updates = {
+					channel = "nightly",
+				}, ]]
 			},
 		},
 	},
 })
-
-vim.cmd([[autocmd BufEnter *.crs set filetype=rust]])
--- InlayHints for rust
--- vim.cmd(
--- [[autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight =  "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }]]
--- )
-
--- Hide virtual text!
---[[ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	virtual_text = true,
-	underline = true,
-	signs = true,
-}) ]]
--- vim.cmd([[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]])
--- vim.cmd([[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]])
