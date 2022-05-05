@@ -8,7 +8,7 @@
     ~/.ssh/config:
         path: ssh/config
         create: true
-    ~/.zshrc: zshrc
+    # ~/.zshrc: zshrc
     ~/.p10k.zsh: p10k.zsh
     ~/.xinitrc: xinitrc
     # config folder
@@ -56,6 +56,11 @@
       create: true
     ~/scripts:
       path: scripts
+      create: true
+    ~/.gitconfig: gitconfig
+    ~/.zshenv: zshenv
+    ~/.config/zsh:
+      path: config/zsh
       create: true
 
 

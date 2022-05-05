@@ -35,7 +35,8 @@ set $menu rofi -combi-modi window#drun#ssh -show combi -modi combi -show-icons
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Day
-output * bg /home/halli/Pictures/default.png fill
+# output * bg /home/halli/Pictures/default.png fill
+output * bg /home/halli/Pictures/rari.jpg fill
 # Night
 # output * bg /home/halli/Pictures/wallpaper_night.jpg fill
 
@@ -45,8 +46,14 @@ output * bg /home/halli/Pictures/default.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-output DP-2 resolution 2560x1440@144Hz position 0,0 adaptive_sync on
-output DP-3 resolution 3840x2160@144Hz adaptive_sync on
+# For games to notice 4k
+
+output DP-2 resolution 3840x2160@144Hz adaptive_sync on
+output DP-3 resolution 2560x1440@144Hz position 0,0 adaptive_sync on
+workspace 1 output DP-2
+workspace 2 output DP-3
+
+exec xrandr --output XWAYLAND0 --primary
 # output HDMI-A-1 resolution 1920x1080@60Hz position 0,0
 # output HDMI-A-1 resolution 2560x1440@144hz position 0,0 adaptive_sync on
 
@@ -134,6 +141,7 @@ input "4152:5920:SteelSeries_SteelSeries_Rival_310_eSports_Mouse" {
 #
 # Workspaces:
 #
+    exec sworkstyle &> /tmp/sworkstyle.log
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -260,6 +268,8 @@ for_window [class="jclient-LoginFrame"] floating enable
 focus_follows_mouse no
 for_window [title="^Picture-in-Picture$" app_id="firefox"] floating enable, sticky enable #Sticky keeps it on all workspaces (on current output)
 
+for_window [app_id="yad"] floating enable
+
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -277,6 +287,8 @@ for_window [window_type="menu"] floating enable
 for_window [app_id="qemu"] floating enable
 
 for_window [class="net-runelite-client-RuneLite"] floating enable
+
+for_window [class="MATLAB R2021b"] floating enable
 # Startup programs
 #exec firefox
 # exec discord --start-minimized
@@ -295,10 +307,13 @@ bindsym $mod+Shift+p exec passmenu
 # Alt + Tab / window switcher
 # bindsym Alt+Tab exec ~/scripts/rofi_window_switcher_hack.sh
 # Polkit (polkit-gnome)
-exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec lxpolkit
+# exec_always /usr/libexec/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Start pulseeffects in the background for equalizing
 # exec pulseeffects --gapplication-service
 exec easyeffects --gapplication-service
+# exec flatpak run com.github.wwmm.easyeffects --gapplication-service
 
 
 # Multimedia keys // check if this works after reboot?

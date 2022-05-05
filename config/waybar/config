@@ -33,6 +33,7 @@
         "clock#date",
         "mpd",
         "pulseaudio",
+        "custom/port_switcher",
         "memory",
         "cpu",
         "disk",
@@ -130,21 +131,21 @@
         "max-length": 120,
     },
 
-    "sway/workspaces": {
-        "all-outputs": false,
-        "disable-scroll": true,
-        "format": "{icon} {name}",
-        "format-icons": {
-            "1:www": "龜", // Icon: firefox-browser
-            "2:mail": "", // Icon: mail
-            "3:editor": "", // Icon: code
-            "4:terminals": "", // Icon: terminal
-            "5:portal": "", // Icon: terminal
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
-    },
+//    "sway/workspaces": {
+//        "all-outputs": false,
+//        "disable-scroll": true,
+//        "format": "{icon} {name}",
+//        "format-icons": {
+//            "1:www": "龜", // Icon: firefox-browser
+//            "2:mail": "", // Icon: mail
+//            "3:editor": "", // Icon: code
+//            "4:terminals": "", // Icon: terminal
+//            "5:portal": "", // Icon: terminal
+//            "urgent": "",
+//            "focused": "",
+//            "default": ""
+//        }
+//    },
     "pulseaudio": {
         "format": "{icon} {volume:2}%",
         "format-bluetooth": "{icon}  {volume}%",
@@ -160,6 +161,13 @@
         "on-click": "easyeffects",
         "on-click-right": "pavucontrol"
       },
+    "custom/port_switcher": {
+        "exec": "sleep .1 && port_selector status",
+        "interval": "once",
+        "format": "{}",
+        "on-click": "exec port_selector switch analog-output-lineout",
+        "on-click-right": "exec port_selector switch analog-output-headphones",
+    },
       "mpd": {
         "format": " {volume} {stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
         "format-disconnected": "Disconnected ",

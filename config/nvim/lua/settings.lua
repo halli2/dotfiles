@@ -51,3 +51,4 @@ cmd("autocmd Filetype go setlocal noexpandtab")
 -- g.onedark_style = 'warm'
 opt("termguicolors", true)
 require("onedark").setup()
+require("onedark").load()

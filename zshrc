@@ -94,6 +94,9 @@ export TERMINAL='kitty'
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_WEBRENDER=1
 
+# Matlab
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 #Aliases
 alias ls='ls --color'
 alias ll='ls -al --color'
