@@ -14,6 +14,7 @@ alias cheat="_cheat"
 
 ## Version control
 alias gp="git_push"
+alias gc="git commit"
 
 # forgit_log=glo
 # forgit_diff=gd
