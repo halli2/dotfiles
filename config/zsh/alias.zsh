@@ -8,13 +8,17 @@ done
 ## File searching utilities
 alias ls="exa -a"
 alias fif="_fif" # "find_in_file"
+alias 'cd..'="cd_up" # Function to cange dir
 
 ## Miscellaneous.
 alias cheat="_cheat"
+alias update="_update"
 
 ## Version control
 alias gp="git_push"
-alias gc="git commit"
+alias gc="git commit -m"
+alias gs="git status --short"
+
 
 # forgit_log=glo
 # forgit_diff=gd

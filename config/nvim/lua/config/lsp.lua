@@ -50,6 +50,53 @@ local on_attach = function(client, bufnr)
             vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
         end
     end
+
+    -- Virtual text
+    vim.api.nvim_create_autocmd("CursorHold", {
+        callback = function()
+            bufnr = bufnr or 0
+            local line_nr = (vim.api.nvim_win_get_cursor(0)[1] - 1)
+            local options = { ["lnum"] = line_nr }
+
+            local line_diagnostics = vim.diagnostic.get(bufnr, options)
+            if vim.tbl_isempty(line_diagnostics) then
+                return
+            end
+
+            local diagnostic_message = ""
+            for i, diagnostic in ipairs(line_diagnostics) do
+                diagnostic_message = diagnostic_message .. string.format("%d: %s", i, diagnostic.message or "")
+            end
+            vim.api.nvim_buf_set_virtual_text(
+                bufnr,
+                1,
+                line_nr,
+                { { diagnostic_message, "LspDiagnosticsDefaultError" } },
+                {}
+            )
+        end,
+    })
+    vim.api.nvim_create_autocmd("CursorMoved", {
+        callback = function()
+            vim.api.nvim_buf_clear_namespace(bufnr, 1, 0, -1)
+        end,
+    })
+    --[[ vim.api.nvim_create_autocmd("CursorHold", {
+		buffer = bufnr,
+		callback = function()
+			local curs_opts = {
+				focusable = false,
+				close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+				border = "rounded",
+				source = "always",
+				prefix = " ",
+				scope = "cursor",
+			}
+			vim.diagnostic.open_float(nil, curs_opts)
+		end,
+	}) ]]
+    -- Don't show unlesss hovering
+    vim.diagnostic.config({ virtual_text = false })
 end
 
 -- tabnine for cmp
@@ -92,6 +139,8 @@ cmp.setup({
         ["<c-n>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
+            elseif require("neogen").jumpable() then
+                require("neogen").jump_next()
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
             elseif has_words_before() then
@@ -107,6 +156,8 @@ cmp.setup({
         ["<c-p>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
+            elseif require("neogen").jumpable(true) then
+                require("neogen").jump_prev()
             elseif luasnip.jumpable(-1) then
                 luasnip.jump(-1)
             else
@@ -126,7 +177,7 @@ cmp.setup({
         --        (more?)
         { name = "luasnip" },
         { name = "nvim_lsp" },
-        { name = "cmp_tabnine", keyword_length = 2 },
+        { name = "cmp_tabnine" },
         { name = "buffer", keyword_length = 5 },
         { name = "path", keyword_length = 5 },
         -- { name = 'nvim_lua' },
@@ -157,6 +208,18 @@ cmp.setup({
         native_menu = false,
         -- What's this
         ghost_text = true,
+    },
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.recently_used,
+            require("clangd_extensions.cmp_scores"),
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
     },
 })
 
@@ -190,7 +253,7 @@ require("null-ls").setup({
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pylsp", "ccls", "html", "cmake", "tsserver", "sumneko_lua" } -- "pyright""gopls"
+local servers = { "pylsp", "html", "cmake", "tsserver", "sumneko_lua" } -- "pyright""gopls" "ccls",
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = on_attach,
@@ -243,20 +306,102 @@ require("rust-tools").setup({
         capabilities = capabilities,
         settings = {
             ["rust-analyzer"] = {
-                --[[ cargo = {
-					loadOutDirsFromCheck = true,
-					allFeatures = true,
-				}, ]]
+                cargo = {
+                    loadOutDirsFromCheck = true,
+                    allFeatures = true,
+                },
                 procMacro = {
                     enable = true,
                 },
                 checkOnSave = {
                     command = "clippy",
+                    allTargets = false, -- For embed, because of errors when using no_std
                 },
                 --[[ rustcSource = "discover",
 				updates = {
 					channel = "nightly",
 				}, ]]
+            },
+        },
+    },
+})
+
+-- Clangd
+require("clangd_extensions").setup({
+    server = {
+        -- options to pass to nvim-lspconfig
+        -- i.e. the arguments to require("lspconfig").clangd.setup({})
+        on_attach = on_attach,
+        capabilities = capabilities,
+        cmd = {
+            "clangd",
+            "--header-insertion=never",
+        },
+    },
+    extensions = {
+        -- defaults:
+        -- Automatically set inlay hints (type hints)
+        autoSetHints = true,
+        -- Whether to show hover actions inside the hover window
+        -- This overrides the default hover handler
+        hover_with_actions = true,
+        -- These apply to the default ClangdSetInlayHints command
+        inlay_hints = {
+            -- Only show inlay hints for the current line
+            only_current_line = false,
+            -- Event which triggers a refersh of the inlay hints.
+            -- You can make this "CursorMoved" or "CursorMoved,CursorMovedI" but
+            -- not that this may cause  higher CPU usage.
+            -- This option is only respected when only_current_line and
+            -- autoSetHints both are true.
+            only_current_line_autocmd = "CursorHold",
+            -- whether to show parameter hints with the inlay hints or not
+            show_parameter_hints = true,
+            -- prefix for parameter hints
+            parameter_hints_prefix = "<- ",
+            -- prefix for all the other hints (type, chaining)
+            other_hints_prefix = "=> ",
+            -- whether to align to the length of the longest line in the file
+            max_len_align = false,
+            -- padding from the left if max_len_align is true
+            max_len_align_padding = 1,
+            -- whether to align to the extreme right or not
+            right_align = false,
+            -- padding from the right if right_align is true
+            right_align_padding = 7,
+            -- The color of the hints
+            highlight = "Comment",
+            -- The highlight group priority for extmark
+            priority = 100,
+        },
+        ast = {
+            role_icons = {
+                type = "",
+                declaration = "",
+                expression = "",
+                specifier = "",
+                statement = "",
+                ["template argument"] = "",
+            },
+
+            kind_icons = {
+                Compound = "",
+                Recovery = "",
+                TranslationUnit = "",
+                PackExpansion = "",
+                TemplateTypeParm = "",
+                TemplateTemplateParm = "",
+                TemplateParamObject = "",
+            },
+
+            highlights = {
+                detail = "Comment",
+            },
+            memory_usage = {
+                border = "none",
+            },
+            symbol_info = {
+                border = "none",
             },
         },
     },

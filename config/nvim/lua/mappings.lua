@@ -16,27 +16,28 @@ map("n", "<localleader>mm", "<cmd>set hlsearch!<cr>")
 ---- Telescope
 map("n", "<localleader>T", '<cmd>lua require("telescope.command").load_command()<cr>')
 map(
-	"n",
-	"<localleader>ff",
-	'<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_ivy())<cr>'
+    "n",
+    "<localleader>ff",
+    '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_ivy())<cr>'
 )
 map(
-	"n",
-	"<localleader>fg",
-	'<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_ivy())<cr>'
+    "n",
+    "<localleader>fg",
+    '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_ivy())<cr>'
 )
 map("n", "<localleader>fb", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_ivy())<cr>')
 map(
-	"n",
-	"<localleader>fh",
-	'<cmd>lua require("telescope.builtin").help_tags(require("telescope.themes").get_ivy())<cr>'
+    "n",
+    "<localleader>fh",
+    '<cmd>lua require("telescope.builtin").help_tags(require("telescope.themes").get_ivy())<cr>'
 )
 map(
-	"n",
-	"<localleader>f_",
-	'<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy(),{sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>'
+    "n",
+    "<localleader>f_",
+    '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_ivy(),{sorting_strategy="ascending", layout_config={prompt_position="top"}})<cr>'
 )
-map("n", "<localleader>fe", "<cmd>Telescope diagnostics<cr>")
+-- map("n", "<localleader>fe", "<cmd>Telescope diagnostics<cr>")
+map("n", "<localleader>fe", "<cmd>Trouble<cr>")
 -- map("n", "<localleader>fe", '<cmd>lua require("telescope.builtin").Telescope diagnostics()<cr>')
 ---- Golang
 -- map('n', '<leader>t', '<cmd>GoTest<cr>', options)
@@ -99,19 +100,10 @@ map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 -- if client.resolved_capabilities.document_formatting then
 -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 -- end
+
+-- Doc Generation
+map("n", "ng", "<cmd> lua require('neogen').generate()<CR>", opts)
+
 -- FZF_LSP
 map("n", "GD", '<Cmd>lua require"fzf_lsp".declaration_call()<CR>', opts)
 map("n", "Gd", '<Cmd>lua require"fzf_lsp".definition_call()<CR>', opts)
-
---[[ require'fzf_lsp'.code_action_call
-require'fzf_lsp'.range_code_action_call
-require'fzf_lsp'.definition_call
-require'fzf_lsp'.declaration_call
-require'fzf_lsp'.type_definition_call
-require'fzf_lsp'.implementation_call
-require'fzf_lsp'.references_call
-require'fzf_lsp'.document_symbol_call
-require'fzf_lsp'.workspace_symbol_call
-require'fzf_lsp'.incoming_calls_call
-require'fzf_lsp'.outgoing_calls_call
-require'fzf_lsp'.diagnostic_call ]]

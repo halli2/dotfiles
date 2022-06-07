@@ -30,17 +30,17 @@ opt("inccommand", "split") -- Show what's changed when %s/''/''
 
 -- Use proper syntax highlighting in code blocks
 local fences = {
-	"lua",
-	-- 'vim',
-	"json",
-	"typescript",
-	"javascript",
-	"js=javascript",
-	"ts=typescript",
-	"shell=sh",
-	"python",
-	"sh",
-	"console=sh",
+    "lua",
+    -- 'vim',
+    "json",
+    "typescript",
+    "javascript",
+    "js=javascript",
+    "ts=typescript",
+    "shell=sh",
+    "python",
+    "sh",
+    "console=sh",
 }
 g.markdown_fenced_languages = fences
 
@@ -52,3 +52,5 @@ cmd("autocmd Filetype go setlocal noexpandtab")
 opt("termguicolors", true)
 require("onedark").setup()
 require("onedark").load()
+
+o.updatetime = 50

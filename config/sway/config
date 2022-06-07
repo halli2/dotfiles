@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term $HOME/.local/bin/kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -95,6 +95,7 @@ input "4152:5920:SteelSeries_SteelSeries_Rival_310_eSports_Mouse" {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    #bindsym $mod+Return exec alacritty
 
     # Kill focused window
     bindsym $mod+Shift+q kill

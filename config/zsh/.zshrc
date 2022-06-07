@@ -9,6 +9,7 @@ HISTFILE=~/.zsh_history
 # Completion
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' # Case insensitive, UNLESS usage of upper case
 zstyle ':completion:*' menu select
+zstyle ':completion:*kill:*' command 'procs'
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -55,28 +56,38 @@ zinit wait for \
     pack doctoc # Markdown TOC maker
 
 zinit wait lucid from"gh-r" as"null" for \
-    sbin"**/fd"        @sharkdp/fd \
-    sbin"**/bat"       @sharkdp/bat \
-    sbin"dust*/dust"   @bootandy/dust \
-    sbin"delta*/delta" @dandavison/delta
+    sbin"**/fd"             @sharkdp/fd \
+    sbin"**/bat"            @sharkdp/bat \
+    sbin"dust*/dust"        @bootandy/dust \
+    sbin"delta*/delta"      @dandavison/delta \
+    sbin'**/glow'           @charmbracelet/glow \
+    sbin'**/rg -> rg'       @BurntSushi/ripgrep \
+    sbin'**/tokei -> tokei' @XAMPPRocky/tokei \
 
 ## exa is a modern replacement for ls.
 zinit wait lucid for \
     atclone'cp -vf completions/exa.zsh _exa'  \
     from'gh-r' \
     sbin'**/exa' \
-  ogham/exa
+    ogham/exa
 
+zinit wait'1' lucid for \
+    from'gh-r' \
+    sbin'**/nvim -> nvim' \
+    ver'nightly' \
+    neovim/neovim
+        
 ## Modern ps replacement
 zi for \
     from'gh-r' \
     sbin'**/procs -> procs' \
-  dalance/procs
+    dalance/procs
 
 ### Plugins
 zinit wait lucid for \
     wfxr/forgit \
     joshskidmore/zsh-fzf-history-search \
+    Aloxaf/fzf-tab \
     hlissner/zsh-autopair
 
 ## https://zdharma-continuum.github.io/zinit/wiki/Example-Minimal-Setup/
@@ -87,6 +98,17 @@ zinit wait lucid for \
         zsh-users/zsh-autosuggestions \
     blockf atpull'zinit creinstall -q .' \
         zsh-users/zsh-completions
+
+## Bette vi mode??
+zinit light jeffreytse/zsh-vi-mode
+
+## PATH
+export PATH=$PATH:~/.local/bin
+
+# GO
+if [ -d "$HOME/go" ]; then
+    export PATH=$PATH:~/go/bin
+fi
 
 # Rust
 if [ -d "$HOME/.cargo" ]; then

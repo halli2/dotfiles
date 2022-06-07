@@ -5,17 +5,17 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-	fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-	execute("packadd packer.nvim")
+  fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
+  execute("packadd packer.nvim")
 end
 
 -- Packages
 return require("packer").startup({
-	function(use)
-		use("wbthomason/packer.nvim")
+  function(use)
+    use("wbthomason/packer.nvim")
 
-		-- Optimisation
-		--[[ use({
+    -- Optimisation
+    --[[ use({
 			"lewis6991/impatient.nvim",
 			-- config = require("impatient")
 			config = require("impatient").enable_profile(),
@@ -24,146 +24,161 @@ return require("packer").startup({
 			"nathom/filetype.nvim",
 			config = "require('config/optimization')",
 		}) ]]
-		-- use("tweekmonster/startuptime.vim")
+    -- use("tweekmonster/startuptime.vim")
 
-		-- File explorer
-		use({
-			"kyazdani42/nvim-tree.lua",
-			requires = { "kyazdani42/nvim-web-devicons", opt = true },
-			config = function()
-				require("nvim-tree").setup({})
-			end,
-		})
+    -- File explorer
+    use({
+      "kyazdani42/nvim-tree.lua",
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
 
-		-- LSP
-		use({
-			"neovim/nvim-lspconfig",
-			-- config = 'require("config/lsp")',
-		})
-		use({
-			"simrat39/rust-tools.nvim",
-		})
-		use({
-			"nvim-lua/lsp_extensions.nvim",
-		})
-		use("jose-elias-alvarez/null-ls.nvim")
+    -- LSP
+    use({
+      "neovim/nvim-lspconfig",
+      -- config = 'require("config/lsp")',
+    })
+    use({
+      "simrat39/rust-tools.nvim",
+    })
+    use("p00f/clangd_extensions.nvim")
+    use({
+      "nvim-lua/lsp_extensions.nvim",
+    })
+    use("jose-elias-alvarez/null-ls.nvim")
 
-		-- Completion
-		use("onsails/lspkind-nvim")
-		use({
-			"L3MON4D3/LuaSnip",
-		})
-		use("saadparwaiz1/cmp_luasnip")
-		use("hrsh7th/cmp-path")
-		use("hrsh7th/cmp-nvim-lua")
-		use("ray-x/cmp-treesitter")
-		use("hrsh7th/cmp-calc")
-		use("hrsh7th/cmp-emoji")
-		use("f3fora/cmp-spell")
-		use("hrsh7th/cmp-nvim-lsp")
-		use("hrsh7th/cmp-buffer")
-		use("hrsh7th/nvim-cmp")
-		use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+    -- Completion
+    use("onsails/lspkind-nvim")
+    use({
+      "L3MON4D3/LuaSnip",
+    })
+    use("saadparwaiz1/cmp_luasnip")
+    use("hrsh7th/cmp-path")
+    use("hrsh7th/cmp-nvim-lua")
+    use("ray-x/cmp-treesitter")
+    use("hrsh7th/cmp-calc")
+    use("hrsh7th/cmp-emoji")
+    use("f3fora/cmp-spell")
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/nvim-cmp")
+    use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
 
-		-- Lua dev
-		use("folke/lua-dev.nvim")
+    -- Diagnostics
+    use({
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+    })
 
-		-- Treesitter
-		use({
-			"nvim-treesitter/nvim-treesitter",
-			requires = {
-				"nvim-treesitter/nvim-treesitter-refactor",
-				"nvim-treesitter/playground",
-			},
+    -- Documentation generation
+    use({
+      "danymat/neogen",
+      requires = "nvim-treesitter/nvim-treesitter",
+      -- Uncomment next line if you want to follow only stable versions
+      -- tag = "*"
+    })
 
-			run = {
-				":TSUpdate",
-			},
-			-- config = 'require("config/treesitter")',
-		})
+    -- Lua dev
+    use("folke/lua-dev.nvim")
 
-		-- DAP
-		use({
-			"mfussenegger/nvim-dap",
-			-- config = 'require("config/dap")',
-		})
+    -- Treesitter
+    use({
+      "nvim-treesitter/nvim-treesitter",
+      requires = {
+        "nvim-treesitter/nvim-treesitter-refactor",
+        "nvim-treesitter/playground",
+      },
 
-		use({
-			"rcarriga/nvim-dap-ui",
-			-- config = 'require("config/dapui")',
-		})
-		-- use("theHamsta/nvim-dap-virtual-text")
+      run = {
+        ":TSUpdate",
+      },
+      -- config = 'require("config/treesitter")',
+    })
 
-		-- Go
-		use({
-			"ray-x/go.nvim",
-			-- config = 'require("config/go")',
-		})
+    -- DAP
+    use({
+      "mfussenegger/nvim-dap",
+      -- config = 'require("config/dap")',
+    })
 
-		-- Telescope
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = {
-				"nvim-lua/popup.nvim",
-				"nvim-lua/plenary.nvim",
-				"nvim-telescope/telescope-ui-select.nvim",
-			},
-		})
+    use({
+      "rcarriga/nvim-dap-ui",
+      -- config = 'require("config/dapui")',
+    })
+    -- use("theHamsta/nvim-dap-virtual-text")
 
-		-- Buffer deletion
-		use("mhinz/vim-sayonara")
+    -- Go
+    use({
+      "ray-x/go.nvim",
+      -- config = 'require("config/go")',
+    })
 
-		-- Comments
-		use({
-			"b3nj5m1n/kommentary",
-			config = 'require("kommentary.config").use_extended_mappings()',
-		})
+    -- Telescope
+    use({
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
+      },
+    })
 
-		-- Indentation tracking
-		use("lukas-reineke/indent-blankline.nvim")
+    -- Buffer deletion
+    use("mhinz/vim-sayonara")
 
-		-- Neoterm
-		use({
-			"itmecho/neoterm.nvim",
-			-- config = 'require("config/neoterm")',
-		})
+    -- Comments
+    use({
+      "b3nj5m1n/kommentary",
+      config = 'require("kommentary.config").use_extended_mappings()',
+    })
 
-		-- Pretty symbol
-		use("kyazdani42/nvim-web-devicons")
+    -- Indentation tracking
+    use("lukas-reineke/indent-blankline.nvim")
 
-		-- ColorScheme
-		use("navarasu/onedark.nvim")
+    -- Pretty symbol
+    use("kyazdani42/nvim-web-devicons")
 
-		-- Statusline
-		use({
-			"nvim-lualine/lualine.nvim",
-			requires = { "kyazdani42/nvim-web-devicons", opt = true },
-			-- config = 'require("config/lualine")',
-		})
+    -- ColorScheme
+    use("navarasu/onedark.nvim")
 
-		-- Which key?
-		use({
-			"folke/which-key.nvim",
-			-- config = 'require("config/which-key")',
-		})
+    -- Statusline
+    use({
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      -- config = 'require("config/lualine")',
+    })
 
-		-- Registers, (paste)
-		use("tversteeg/registers.nvim")
+    -- Which key?
+    use({
+      "folke/which-key.nvim",
+      -- config = 'require("config/which-key")',
+    })
 
-		-- Sneak like
-		use({
-			"ggandor/lightspeed.nvim",
-		})
+    -- Registers, (paste)
+    use("tversteeg/registers.nvim")
 
-		use({
-			"junegunn/vim-easy-align",
-		})
+    -- Sneak like
+    use({
+      "ggandor/lightspeed.nvim",
+    })
 
-		use({
-			"windwp/nvim-ts-autotag",
-		})
-	end,
-	config = {
-		compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
-	},
+    use({
+      "junegunn/vim-easy-align",
+    })
+
+    use({
+      "windwp/nvim-ts-autotag",
+    })
+    use({
+      "s1n7ax/nvim-terminal",
+    })
+
+    -- use({
+    --   "knubie/vim-kitty-navigator", { run = 'cp ./*.py ~/.config/kitty' }
+    -- })
+
+
+  end,
+  config = {
+    compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
+  },
 })
