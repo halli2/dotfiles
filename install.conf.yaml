@@ -62,6 +62,9 @@
     ~/.config/zsh:
       path: config/zsh
       create: true
+    ~/.config/helix:
+      path: config/helix
+      create: true
 
 
         #- shell:

@@ -1,0 +1,31 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = true
+auto-format = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+tab = "→"
+newline = "⏎"
+
+[editor.lsp]
+display-messages = true
+
+[keys.normal]
+"A-+" = "switch_to_uppercase"
+'\' = "switch_to_lowercase"
+"C-+" = "switch_case"
+# "," = { w = ":w" }
