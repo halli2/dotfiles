@@ -14,4 +14,4 @@ rustup update
 
 echo "Update Cargo Binaries"
 cargo install $(cargo install --list | egrep '^[a-z0-9_-]+ v[0-9.]+:$' | cut -f1 -d' ' | grep -v 'cargo-edit' )
-cargo install cargo-edit --features vendored-openssl
+# cargo install cargo-edit --features vendored-openssl
