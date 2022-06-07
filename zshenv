@@ -4,3 +4,4 @@ export ZDOTDIR="${HOME}"/.config/zsh
 
 ## Load modules (currently only 1 file.
 . "${ZDOTDIR}"/env.zsh
+. "$HOME/.cargo/env"

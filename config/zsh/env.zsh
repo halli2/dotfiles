@@ -1,8 +1,8 @@
 ### Programs
 
 export SHELL=zsh
-export VISUAL=nvim
-export EDITOR=nvim
+#export VISUAL=nvim
+#export EDITOR=nvim
 export PAGER=bat
 export GIT_PAGER="${PAGER}"
 export TERMINAL=kitty
