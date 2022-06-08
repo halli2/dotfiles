@@ -1,0 +1,13 @@
+# For games to notice 4k
+
+output DP-2 resolution 3840x2160@144Hz adaptive_sync on
+output DP-3 resolution 2560x1440@144Hz position 0,0 adaptive_sync on
+workspace 1 output DP-2
+workspace 2 output DP-3
+
+exec xrandr --output XWAYLAND0 --primary
+
+input "4152:5920:SteelSeries_SteelSeries_Rival_310_eSports_Mouse" {
+    accel_profile "flat"
+    pointer_accel 0
+}

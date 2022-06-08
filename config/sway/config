@@ -34,7 +34,7 @@ input "1739:52804:MSFT0001:00_06CB:CE44_Touchpad" {
     middle_emulation enabled
 }
 input * {
-      xkb_layout "no"
+    xkb_layout "no"
 }
 
 ### Key bindings
@@ -137,6 +137,11 @@ input * {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+    
+# Screenshot
+    bindsym $mod+Shift+s exec grimshot save active ~/Pictures/$(date +'%Y-%m-%d-%H%M%S').png
+    bindsym $mod+Shift+s exec grimshot copy area
+    bindsym $mod+Shift+x exec grimshot save area ~/Pictures/$(date +'%Y-%m-%d-%H%M%S').png
 
 # Resizing containers:
 mode "resize" {
@@ -180,6 +185,9 @@ bar {
     # Notifications
     exec mako
     
+    # Pol kit
+    exec lxpolkit
+    
     # Audio
     exec easyeffects --gapplication-service
 
@@ -208,3 +216,4 @@ bar {
 
 
 include /etc/sway/config.d/*
+include ./desktop_config
