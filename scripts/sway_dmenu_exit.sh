@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # https://github.com/Madic-/Sway-DE/blob/master/bin/dmenupower.sh
-case "$(echo -e " Exit sway\n Lock\n Power Off\n Reboot\n⏲ Suspend\n" | bemenu -l 5 -p "Power:")" in
+case "$(echo -e " Exit sway\n Lock\n Power Off\n Reboot\n⏲ Suspend\n" | dmenu -l 5 -p "Power:")" in
 " Exit sway")
   swaymsg exit
   loginctl terminate-user $USER

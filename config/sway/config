@@ -13,7 +13,7 @@ exec --no-startup-id lxpolkit
 
 set $term kitty
 # set $menu wofi --show drun --allow-images
-set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
+set $menu j4-dmenu-desktop
 
 # Border
 default_border pixel 3
@@ -145,7 +145,7 @@ input "tyoe:keyboard" {
     bindsym $mod+minus scratchpad show
     
 # Screenshot
-    bindsym $mod+Shift+s exec grimshot save active ~/Pictures/$(date +'%Y-%m-%d-%H%M%S').png
+    bindsym Print exec grimshot save active ~/Pictures/$(date +'%Y-%m-%d-%H%M%S').png
     bindsym $mod+Shift+s exec grimshot copy area
     bindsym $mod+Shift+x exec grimshot save area ~/Pictures/$(date +'%Y-%m-%d-%H%M%S').png
 
