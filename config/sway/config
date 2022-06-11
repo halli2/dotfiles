@@ -8,6 +8,9 @@ set $down j
 set $up k
 set $right l
 
+# Polkit
+exec --no-startup-id lxpolkit
+
 set $term kitty
 # set $menu wofi --show drun --allow-images
 set $menu bemenu-run --fn $uifont -b -p "▶" --tf "$prompt" --hf "$highlight" --sf "$highlight" --scf "$highlight" | xargs swaymsg exec
