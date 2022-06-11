@@ -1,6 +1,8 @@
 ### Programs
 
 export SHELL=zsh
+export EDITOR=hx
+export VISUAL=hx
 #export VISUAL=nvim
 #export EDITOR=nvim
 export PAGER=bat

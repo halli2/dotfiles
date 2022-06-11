@@ -24,10 +24,10 @@ output * bg /usr/share/backgrounds/default.png fill
 ### Idle config
 # Lock screen after 5 min, turn off display after another 5 min
 # also lock screen before sleep
-exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w \
+#     timeout 300 'swaylock -f -c 000000' \
+#     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#     before-sleep 'swaylock -f -c 000000'
 
 ### Input config
 input "1739:52804:MSFT0001:00_06CB:CE44_Touchpad" {
@@ -173,11 +173,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Media keys
+    # Media
     bindsym XF86AudioRaiseVolume exec amixer -D pipewire sset Master 5%+
     bindsym XF86AudioLowerVolume exec amixer -D pipewire sset Master 5%-
     bindsym XF86AudioMute exec amixer -D pipewire sset Master 1+ toggle
     bindsym XF86AudioMicMute exec amixer -D pipewire sset Capture 1+ toggle
-        
+    
+    bindsym XF86Calculator exec playerctl -p spotify play-pause
+            
     # Brightness
     bindsym XF86MonBrightnessUp exec light -A 10
     bindsym XF86MonBrightnessDown exec light -U 10
@@ -218,6 +221,9 @@ bar {
     for_window [app_id="qemu"] floating enable
     for_window [class="net-runelite-client-RuneLite"] floating enable
     for_window [class="MATLAB R2021b"] floating enable
+    
+### Focus
+    no_focus [class="Steam"]
 
 
 
