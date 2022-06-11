@@ -8,8 +8,8 @@ export GIT_PAGER="${PAGER}"
 export TERMINAL=kitty
 
 # Try out Clang instead of gcc
-# export CC=clang
-# export CXX=clang++
+export CC=clang
+export CXX=clang++
 
 ## FZF
 # export FZF_DEFAULT_COMMAND="fd --hidden --follow"

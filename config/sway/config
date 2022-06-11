@@ -36,6 +36,9 @@ input "1739:52804:MSFT0001:00_06CB:CE44_Touchpad" {
 input * {
     xkb_layout "no"
 }
+input "tyoe:keyboard" {
+    xkb_options caps:mod3
+}
 
 ### Key bindings
 #
